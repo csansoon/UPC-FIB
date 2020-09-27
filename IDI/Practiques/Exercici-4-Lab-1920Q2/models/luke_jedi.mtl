@@ -1,0 +1,37 @@
+newmtl blinn1SG
+illum 4
+Kd 0.90 0.60 0.40
+Ka 0.22 0.07 0.05
+Tf 1.00 1.00 1.00
+map_Kd luke face.png
+Ni 1.00
+Ks 1.00 1.00 1.00
+newmtl blinn2SG
+illum 4
+Kd 0.85 0.30 0.85
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd chest.png
+Ni 100.00
+Ks 1.0 1.0 1.0
+newmtl blinn3SG
+illum 4
+Kd 0.25 0.10 0.25
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+newmtl blinn4SG
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+newmtl blinn5SG
+illum 4
+Kd 0.25 1.00 0.00
+Ka 0.05 0.50 0.00
+Tf 0.39 0.39 0.39
+Ni 1.00
+Ks 0.50 0.50 0.50
