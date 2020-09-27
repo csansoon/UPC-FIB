@@ -1,0 +1,155 @@
+-- 1 --
+¿Cómo podéis saber los sistemas de ficheros montados en vuestro sistema y de qué tipo son? Indica, además, en qué directorios están montados.
+    Amb df -T:
+
+Filesystem    512-blocks      Used Available Capacity iused               ifree %iused  Mounted on
+/dev/disk1s1   410157008 389950168  14675016    97% 1855409 9223372036852920398    0%   /
+devfs                382       382         0   100%     662                   0  100%   /dev
+/dev/disk1s4   410157008   4194384  14675016    23%       2 9223372036854775805    0%   /private/var/vm
+/dev/disk0s3    79462392  64721768  14740624    82%  181344             1917746    9%   /Volumes/BOOTCAMP
+map -hosts             0         0         0   100%       0                   0  100%   /net
+map auto_home          0         0         0   100%       0                   0  100%   /home
+
+¿Cómo se puede saber el número de inodos libres de un sistema de ficheros? ¿Qué comando has utilizado y con qué opciones?
+    df -i
+
+
+¿Cómo se puede saber el espacio libre de un sistema de ficheros? ¿Qué comando has utilizado y con qué opciones?
+    df -h
+
+-- 2 --
+# echo “esto es una prueba” > pr.txt
+# ln –s pr.txt sl_pr
+# ln pr.txt hl_pr
+
+¿De qué tipo es cada uno de links creados, sl_pr y hl_pr? ¿Cuál es el número de links que tiene cada fichero? ¿Qué inodo tiene cada fichero?
+
+-> pr.txt
+Arxiu regular, 2 links
+
+#stat pr.txt
+File: 'pr.txt'
+Size: 7    		 Blocks: 8      	IO Block: 4096   regular file
+Device: 15h/21d    Inode: 18874   	Links: 2
+Access: (0664/-rw-rw-r--)  Uid: (  999/  ubuntu)   Gid: (  999/  ubuntu)
+Access: 2017-12-14 11:00:06.708218739 +0000
+Modify: 2017-12-14 11:00:06.708218739 +0000
+Change: 2017-12-14 11:00:06.708218739 +0000
+Birth: -
+
+-> sl_pr
+Soft Link, 1 link
+
+#stat sl_pr
+File: 'sl_pr' -> 'pr.txt'
+Size: 6    		 Blocks: 0      	IO Block: 4096   symbolic link
+Device: 15h/21d    Inode: 18875   	Links: 1
+Access: (0777/lrwxrwxrwx)  Uid: (  999/  ubuntu)   Gid: (  999/  ubuntu)
+Access: 2017-12-14 11:00:16.296806005 +0000
+Modify: 2017-12-14 11:00:16.296806005 +0000
+Change: 2017-12-14 11:00:16.296806005 +0000
+Birth: -
+
+-> hl_pr
+Arxiu regular, 2 links
+
+#stat hl_pr
+File: 'hl_pr'
+Size: 7    		 Blocks: 8      	IO Block: 4096   regular file
+Device: 15h/21d    Inode: 18874   	Links: 2
+Access: (0664/-rw-rw-r--)  Uid: (  999/  ubuntu)   Gid: (  999/  ubuntu)
+Access: 2017-12-14 11:00:06.708218739 +0000
+Modify: 2017-12-14 11:04:43.346625321 +0000
+Change: 2017-12-14 11:05:37.243142996 +0000
+Birth: -
+
+¿Qué significa ese valor (links)?
+El nombre de vegades que apareixen a la taula de fitxers oberts.
+
+¿Alguno de los links, sl_pr o hl_pr, tiene el mismo inodo que pr.txt? ¿Si es así, qué significa eso?
+Sí, hl_pr, ja que apunten al mateix lloc. Si esborressim un, amb l'altre podriem continuar operant normalment.
+
+Ejecuta los comandos cat, namei y readlink sobre sl_pr y sobre hl_pr:
+o Apunta el resultado en el fichero previo.txt.
+o ¿Observas alguna diferencia en el resultado de alguno de los
+comandos cuando se ejecutan sobre sl_pr y cuando se ejecutan sobre
+hl_pr? Si hay alguna diferencia, explica el motivo.
+
+#cat sl_pr
+esto es una prueba
+
+#cat hl_pr
+esto es una prueba
+
+#namei sl_pr
+f: sl_pr
+ l sl_pr -> pr.txt
+   - pr.txt
+
+#namei hl_pr
+f: hl_pr
+ - hl_pr
+// sl_pr es veu que apunta a pr.txt i en canvi l'altre no.
+
+#readlink sl_pr
+pr.txt
+
+#readlink hl_pr
+// hl_pr no conté rés perquè no enllaça amb cap
+
+Elimina ahora el fichero pr.txt y vuelve a ejecutar los comandos stat, cat,
+namei y readlink tanto sobre sl_pr como hl_pr.
+o Apunta los resultados en el fichero previo.txt
+o ¿Observas alguna diferencia en el resultado de alguno de los
+comandos cuando se ejecutan sobre sl_pr y cuando se ejecutan sobre
+hl_pr? Si hay alguna diferencia, explica el motivo.
+
+#stat pr.txt
+stat: cannot stat 'pr.txt': No such file or directory
+
+
+#stat sl_pr
+File: 'sl_pr' -> 'pr.txt'
+Size: 6    		 Blocks: 0      	IO Block: 4096   symbolic link
+Device: 15h/21d    Inode: 18875   	Links: 1
+Access: (0777/lrwxrwxrwx)  Uid: (  999/  ubuntu)   Gid: (  999/  ubuntu)
+Access: 2017-12-14 11:00:16.296806005 +0000
+Modify: 2017-12-14 11:00:16.296806005 +0000
+Change: 2017-12-14 11:00:16.296806005 +0000
+Birth: -
+
+#stat hl_pr
+File: 'hl_pr'
+Size: 19   		 Blocks: 8      	IO Block: 4096   regular file
+Device: 15h/21d    Inode: 18874   	Links: 1
+Access: (0664/-rw-rw-r--)  Uid: (  999/  ubuntu)   Gid: (  999/  ubuntu)
+Access: 2017-12-14 11:00:06.708218739 +0000
+Modify: 2017-12-14 11:15:11.024995265 +0000
+Change: 2017-12-14 11:20:48.643602709 +0000
+ Birth: -
+
+#cat sl_pr
+cat: sl_pr: No such file or directory
+
+#cat hl_pr
+esto es una prueba
+
+#namei sl_pr
+f: sl_pr
+ l sl_pr -> pr.txt
+ 	pr.txt - No such file or directory
+
+#namei hl_pr
+f: hl_pr
+ - hl_pr
+
+#readlink sl_pr
+pr.txt
+
+#readlink hl_pr
+
+
+o ¿Observas alguna diferencia respecto a la ejecución de estos
+comandos antes y después de borrar el fichero pr.txt? Si hay alguna diferencia, explica el motivo.
+
+sl_pr segueix apuntant a pr.txt, pero al intentar accedir-hi treu un error al haver-lo eliminat.

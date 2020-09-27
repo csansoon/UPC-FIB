@@ -1,0 +1,120 @@
+Pregunta 68.
+1)
+ln $HOME/A $HOME/A/H 
+ln: /home/alumne/A: hard link not allowed for directory
+Porque intenta crear un hard link al directorio en el que nos encontramos.
+
+
+2)
+#stat D:
+File: 'D'regular file, Size: 25, Inode: 745477, Links: 2., Access: (0664/-rw-rw-r--).
+Es un fichero de datos.
+
+#stat E:
+File: 'E' -> '/home/alumne/A'symbolic link, Size: 14, Inode: 745478, Links: 1, Access: (0777/lrwxrwxrwx).
+Es un enlace simbólico, que nos direcciona a la carpeta A. 
+
+#stat F:
+File: 'F' -> 'D'symbolic link, Size: 1, Inode: 745479, Links: 1, Access: (0777/lrwxrwxrwx).
+Es un enlace simbólico, que nos direcciona al fichero D de la carpeta A.
+
+#stat G:
+File: 'G'regular file, Size: 25, Inode: 745477, Links: 2, Access: (0664/-rw-rw-r--).
+Es un 'hard link' direccionado al fichero de datos D.
+
+3)
+#more D
+estoy en el directorio A
+#readlink D
+Nos muestra el contenido del fichero D y al no ser un enlace no saca ninguna direccion.
+
+
+#more E
+*** E: directory ***
+#readlink E
+/home/alumne/A
+Nos muestra que es un link que apunta a un directorio y el directorio a cual apunta.
+
+#more F
+estoy en el directorio A
+#readlink F
+D
+Al ser un enlace símbolico nos muestra que apunta a D y el contenido de D.
+
+#more G
+estoy en el directorio A
+#readlink G
+Hard link, que nos muestra su contenido y nada cuando le pregunatamos sobre a quien apunta.
+
+
+4)
+#echo $HOME/A/F
+/home/alumne/A/F
+#namei E
+f: E
+ l E -> /home/alumne/A
+   d /
+   d home
+   d alumne
+   d A
+Apunta al directorio y sobre los directorios que tiene que pasar previamente.
+
+#echo $HOME/A/E
+/home/alumne/A/E
+#namei F
+f: F
+ l F -> D
+   - D
+Nos muestra directamente el fichero al cual apunta.
+
+#echo $HOME/A/G
+/home/alumne/A/G
+#namei G
+f: G
+ - G
+Muestra el fichero en sí.
+
+#readlink $HOME/A/F
+D
+Solo apunta al fichero.
+
+
+5)
+#ln -s ami ami
+
+#cat ami
+cat: ami: Too many levels of symbolic links
+
+#namei ami
+f: ami
+ l ami -> ami
+   l ami -> ami
+     l ami -> ami
+       l ami -> ami
+         l ami -> ami
+           l ami -> ami
+             l ami -> ami
+               l ami -> ami
+                 l ami -> ami
+                   l ami -> ami
+                     l ami -> ami
+                       l ami -> ami
+                         l ami -> ami
+                           l ami -> ami
+                             l ami -> ami
+                               l ami -> ami
+                                 l ami -> ami
+                                   l ami -> ami
+                                     l ami -> ami
+                                       l ami -> ami
+                                         l ami -> ami
+namei: ami: exceeded limit of symlinks
+
+Se forma un bucle infinito y cunado lleva unas veinte iteracions finaliza y comenta que son demasiados niveles de enlaces simbólicos.
+
+
+
+
+
+
+

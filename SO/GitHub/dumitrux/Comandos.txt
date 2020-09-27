@@ -1,0 +1,274 @@
+# SESIÓN 1: EL INTÉRPRETE DE COMANDOS: SHELL(Bash)
+
+Prompt, texto que aparece en la shell, indica que está lista para recibir nuevos comandos.
+
+	Comandos externos: programas instalados en la máquina (man)
+	Comandos internos: funciones implementadas por el intérprete de comandos (help)
+
+Comandos de sistema para modificar/navegar por el sistema de ficheros: cd, ls, mkdir, cp, rm, rmdir, mv.
+Comandos de sistema y programas de sistema para acceder a ficheros: less, cat, grep, gedit.
+
+	&: ejecutar programa en background.
+	>: redirecciona la salida de datos a un fichero.
+	>>: redirecciona la salida de datos a un fichero sin sobreescribir.
+	<: redirecciona la entrada desde un fichero.
+	/: buscar dentro del man.
+	.fichero: ficheros ocultos.
+	.: hace referencia al directorio en el que se está en ese momento.
+	..: hace referencia al directorio de nivel inmediatamente superior al que se está.
+	*: se substituye por cualquier grupo de caracteres excepto '.'.
+
+
+· man: accede a manuales on-line. Secciones del manual:
+	1. Comandos
+	2. Llamadas a sistema
+	3. Llamadas a librerías de usuario o del lenguaje
+	4. Ficheros especiales(/dev)
+	....
+Significado del documento del manual:
+	en negrita: escribir exactamente eso.
+	subrayado: reemplazar por los argumentos adecuados.
+	entre corcheres[-abc]: los argumentos del interior son opcionales.
+	separador -a | -b:  no se pueden usar juntos.
+	puntos suspensivos argument...: el argumento es repetible.
+	[expression]...: la expression entera entre corchetes es repetible.
+
+· bash: manual de Bash.
+· ls: muestra el contenido del directorio.
+	-l: mustra información adicional(como los permisos).
+	-a: muestra ficheros ocultos que empiezan por '.'.
+· mkdir: crea directorio.
+· rmdir: elimina directorio vacío.
+· mv: cambia nombre de un fichero o lo mueve a otro directorio.
+	-i: antes de sobreescribir avisa.
+· cp: copia ficheros y directorios.
+	-i: antes de sobreescribir avisa.
+· rm: borra ficheros o directorios.
+	-i: antes de borrar avisa.
+· echo: visualiza un texto (puede ser una variable de entorno).
+	#echo $PWD
+· less: muestra ficheros en un formato apto para un terminal(parecido a una página del man).
+· cat: concatena ficheros y los muestra en una salida estándar.
+· grep: busca texto en ficheros.
+	-i: no diferencia entre mayúsculas y minúsculas
+	#grep texto_a_buscar fichero1 fichero2
+· gedit: editor de texto para GNOME.
+· env: ejecuta un comando en un entorno modificado, si no se le pasa comando, muestra el entorno.
+· chmod: modifica los permisos de acceso a un fichero.
+	u(user)g(group)o(others)a(all)-r(read)w(write)x(execute)
+	#chmod ugo=rwx fichero1
+	#chmod u+x fichero2
+	#sudo chmod 700 fichero3 (añade todos permisos a usuario y quita todos los demás)
+	#chmod u=rw,go= fichero4
+	-R: si es una carpeta los archivos de dentro tendran los mismos permisos que los especificados a la carpeta.
+· which: localiza un comando(directorio "/bin" del comando).
+
+· (help)help: ofrece información sobre comando internos de la Shell.
+· (help)export: define una variable de entorno.
+	#export NOMBRE_VARIABLE=valor
+	#export PATH=$PATH:.
+· (help)cd: cambia de directorio.
+· (help)alias: define nombre alternativo a un comando.
+	#alias ls='ls -la'
+· (help)source: ejecuta todos los comandos que hay en el fichero especificado.
+
+Variables de entorno:
+Pertenecen al contexto. Similares a las constantes que se definen en un programa.
+· PATH: lista de directorio donde la shell busca los comandos.
+· HOME: el directorio por defecto.
+· PWD: el actual directorio de trabjo.
+
+Comprimir: #tar zcfv fichero.tar.gz fichero1.txt fichero.c
+Descomprimir: #tar zxfv S2.tar.gz
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+# SESIÓN 2:EL LENGUAJE C
+
+Uso de Usage(), si no se entra los parametros adecuados poner por salida el funcionamiento del programa.
+También muestra el uso de las cabeceras y como unir todo.
+
+· make: automatiza el proceso de compilación/linkaje de un programa o grupo de programas.
+	#make -f fichero_elejido
+· gcc: compilador de C de GNU.
+	-c : compila o enssambla pero no linka.
+	-o: coloca la salida en el fichero especificado, en caso contrario se pone por defecto en a.out.
+	-I: busca los ficheros de los include en los directorios especificados. #gcc -o -I .
+	-l: busca la libreria especificada cuando linka.
+	-L: añade el directorio especificado a la lista de directorios para ser buscados de -l.
+· sprintf: conversión de formato(tranforma a string) almacenándola en un buffer.
+· atoi: convierte un string a un número entero.
+· indent: identación de ficheros fuente.
+· ar: junta ficheros objeto en una librería.
+
+Los dispositivos, se suelen llamar canal, se idenfican con un número. La salida estándar es el canal 1 y la salida estándar de error es el canal 2 (por defecto, ambas son la pantalla).
+
+Código en C:
+· Cabecera del main: int main(int argc, char *argv[]) {}
+	#programa 12 A -> argc = 3, argv[0]="programa", argv[1]="12", argv[2]="A".
+· Convertir "string" en int: int n = atoi(argv[x]);
+· Sprintf: sprintf(buff, "Entero: %d, char: %c, string: %s, puntero %p \n", 12, 'a', "string", buffer);
+· Write: write(canal,buffer,strlen(buffer));
+· Constantes: #define NOMBRE valor
+· Strcmp: si string son iguales da valor 0.
+· Strcpy: strcpy(destino, origen);
+· Conversión explícita tipos: (chat) i, (int)'a'
+· Definicion de vectores(no utilizar variables para la dimensión): int enteros[n];
+· Strlen: Longitud "usada" de un string.
+· Operaciones logicas: NO existe 'and', es '&&'. Tampoco 'or' es '||'. Sí hay comparaciones >=, ==, etc. Los enteros(int) se utilizan 		como booleano, si es 0 falso cualquier otra cosa cierto.
+· No existen strings, se define como una cadena de caracteres, cabada en el carácter '\0'.
+· Estructuras condicionales(if, else if, else) y iterativas(while, for) iguales que en C++.
+· Punteros pueden ser cualquier cosa, a entero(int *), a char(char +) o puntero "genérico" (void *). int x = 4;int *p=&x;
+	char buffer[32] ->(punteros) buffer == &buffer[0]
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+# SESIÓN 3: PROCESOS
+
+Comprobación de errores con perror.
+
+· getpid: retorna el PID del procesos que la ejecuta.
+· getppid: retorna el PID del procesos padre.
+· fork: crea un proceso nuevo, hijo del que la ejecuta. Al hijo se le retorna 0 y al padre el PID del hijo y si falla un -1 al padre.
+· exit: termina el procesos que ejecuta la llamada.
+· waitpid: espera la finalización de un proceso hijo. waitpid(pid_t pid, int *status, int options);
+	waitpid(-1, NULL, 0); espera a cualquier hijo.
+	waitpid(pid_hijo, NULL, 0); espera a un hijo concreto.
+	while (pid=waitpid(-1, NULL, 0) > 0); espera a todos los hijos.
+	WIFEXITED(status): devuelve true si el hijo a terminado con exit(). De esta depnden el siguiente.
+	WIFEXITSTATUS(status): devuelve el estado de salida del hijo.
+	WIFSIGNALED(status): devuelve true si el hijo a terminado por una señal.
+	WITERMSIG(status): si el anterior es true devuelve el numero de la señal que lo ha terminado.
+
+· execlp: ejecuta un programa en el contexto del mismo proceso.
+	execlp("ls", "ls", "-l", /(char *) 0;
+	execlp("./programa", "programa", (char *) 0);
+· perror: escribe un mensaje del último erro producido.
+	perror("xxx FALLA\n");
+· ps: devuelve infroamción de los procesos.
+	-a: selecciona todos los procesos excepto los líderes y los procesos no asociados con un terminal.
+	-u: selecciona por ID de usuario o nombre, esto selecciona los procesos cuyo nombre de usuario o ID se encuentre en la lista 
+	de usuario.
+	-o: formato definido por el usuario.
+· proc: pseudo-file system que ofrece información de datos del kernel. # cd /proc/PID
+	cmdline: archivo de solo lectura que contiene la línea de comando completa para el proceso, a menos que se un zombie, entonces devuelve 0.
+	cwd: enlace simbólico al directorio de trabajo actual del proceso.
+	environ: archivo que contiene el entorno para el proceso.
+	exe: archivo es un enlace simbólico que contiene la ruta real del comando ejecutado.
+	status: proporciona información (name, state, TID, PPID, etc).
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+# SESIÓN 4: COMUNICACIÓN DE PROCESOS
+
+· sigaction: reprograma la acción asociada a un evento conctreto. La llegada de SIGKILL o SIGSTOP no se puede reprogramar.
+struct sigaction {
+	void	(*sa_handler)(int);
+	void	(*sa_sigaction)(int, siginfo_t *, void *);
+	sigset_t	sa_mask;
+	int	sa_flags;
+	void	(*sa_restorer)(void);
+}
+
+· kill(llamada a sistema): envía un evento concreto a un proceso.
+· sigsuspend: bloquea el proceso que la ejecuta hasta que recibe un signal (los signals cuyo tratamiento es ser ignorado no desbloquean 	el proceso). Reemplaza temporalmente la máscara de señal del proceso de llamada, por la máscara dada, y cuando se ejecuta el 		sa_handler especificado se reestablece la máscara anterior. No es posible bloquear SIGKILL o SIGSTOP.
+· sigprocmask: permite modificar la máscara de signals bloqueados del proceso.
+	SIG_BLOCK: el conjunto de señales bloqueadas es la unión del conjunto actual y el nuevo.
+	SIG_UNBLOCK: las señales del nuevo conjunto se borran del actual.
+	SIG_SETMASK: el conjunto de señales bloqueadas se establece en el nuevo argumento.
+· alarm: programa el envío de un signal SIGALRM al cabo de N segundos. alarm() devuelve la cantidad de segundos restantes hasta que se 		entregue una alarma previamente programada, o cero si no había previamente.
+· sleep: función de la librería de C que bloquea al proceso durante el tiempo que se le pasa como parámetro. Si es interrumpida por un 		signal devuelve el tiempo que le queda por dormir.
+· /bin/kill(comando): envía un evento a un proceso.
+	-L: para enumerar las señales disponibles.
+	#kill -KILL pid
+· ps: muestra información sobre los procesos del sistema.
+	-o pid:los encabezados pueden renombrarse como se desee.
+	s: mostrar formato de señal.
+	cmd: veer los args.
+	time: tiempo acumulado de CPU.
+· waitpid: espera la finalización de un proceso.
+	WNOHANG: regresa inmediatamente si ningún hijo ha salido.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+# 3SESIÓN 5: GESTIÓN DE MEMORIA
+
+· gcc: compilador de C.
+	-static: compla el fichero de forma estatica("librerias propias").
+· nm: comando que muestra la tabla de símbolos del programa (variable globales y funciones).
+· objdump: comando que muestra información sobre el fichero objeto.
+	-d: para ver el codigo traducido
+· /proc: contiene información sobre el sistema y los procesos en ejecución.
+	/proc/[pid]/maps: contiene una línea para cada region de memoria reservada.
+· malloc: función de la líbreria de C que valida una región de memoria lógica.
+· free: función de la librería de C que libera una región de memoria lógica.
+· sbrk: llamada a sistema que modifica el tamaño de la sección de datos.
+------------------------------------------------------------------------------------------------------------------------------------
+
+# SESIÓN 7: GESTIÓN DE ENTRADA/SALIDA
+
+· mknod: comando que crea un fichero especial.
+	c: create a character (unbuffered) special.
+	p: create a FIFO.
+· insmod: comando que inserta un módulo en el kernel.
+· rmmod: comando que descarga un módulo del kernel.
+· lsmod: comando que muestra el estado de los módulos cargados en el kernel.
+· sudo: comando que permite ejecutar un comando como root.
+· open: abre un fichero o dispositivo.
+· write: llamada a sistema para escribir en un dispositivo virtual.
+· read: llamada a sistema para leer de un dispositivo virtual.
+· grep: comando que busca patrones en un fichero o en su entrada estándar si no se le pasa fihcero como parámetro.
+	-c: supress normal output; instead print a count of matching lines for each input file.
+· ps: comando que muestra información sobre los procesos en ejecución.
+	-e: select all processes.
+	-o: user-defined format. format is a single argument in the form of a blank-separated or comma-separated list, which offers a 			way to specify individual output columns.
+· strace: lista las llamadas a sistemas ejecutadas por un proceso.
+	-e: se le especifica que mueste información sobre una única llamada a sistema.
+	-c: count times, calls, an errors for each system call and report a summary on program exit.
+	-o: guarda la informacion en el fichero especificado.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+# SESIÓN 8: GESTIÓN DE ENTRADA/SALIDA
+
+· mknod: comando que crea un fichero especial.
+	P:
+· mknod: llamada al sistema que crea un fichero especial
+· pipe: llamada a sistema para crear una pipe sin nombre.
+· open: abre un fichero o dispositivo.
+	O_NONBLOCK:
+	ENXIO:
+· close: cierra un descriptor de fichero.
+· dup/dup2: duplica un descriptor de fichero.
+· socket: crea un socket.
+	AF_UNIX:
+	SOCK_STREAM:
+· bind: asigna un nombre o dirección a un socket.
+· listen: espera conexiones a un socket.
+· accept: acepta una conexión en un socket.
+· connect: inicia una conexión a un socket.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+# SESIÓN 9: SISTEMA DE FICHEROS
+
+· open/creat: abre/crea un fichero o dispositivo.
+    O_CREAT: si el fichero no existe se crea.
+    O_TRUNC: si el fichero ya existe y es un fichero normal y el modo  de acceso permite escribir, entonces se trunca (a longitud 0).
+    "Permisos 'de CREAT'": más fácil poner 0x666 (permiso a usuario grupo y otros de rw-). También con notación, S_IRWXU, S_IRUSR, 		S_IWUSR, S_IXUSR, S_IRWXG, S_IRGRP, S_IWGRP, S_IXGRP, S_IRWXO, S_ROTH, S_WOTH, S_IXOTH.
+· df: devuelve información sobre el sistema de ficheros.
+    -T: imprime tipo de sistema de archivo.
+    -h: imprime tamaños en potencias de 1024.
+    -l: limita el listado a los sistemas de archivos locales.
+    -i: enumera la información del inodo en lugar del uso del bloque.
+· ln: crea enlaces (links) a ficheros.
+    -s: hacer enlaces simbólicos en lugar de hard-links.
+· namei: procesa una ruta de un fichero hasta encontrar el punto final.
+· readlink: lee el contenido de un link simbólico.
+· stat: muestra información de control de un fichero.
+    -Z:
+    -f: muestra el estado del sistema de archivos en lugar del estado del archivo.
+· lseek: modifica la posición de lectura/escritura de un fichero.
+    SEEK_SET: el desplazamiento está configurado para compensar bytes(el desplazamiento es el lugar exacto donde apuntara puntero l/e).
+    SEEK_CUR: el desplazamiento se establece en su ubicación actual más bytes de compensación(donde este puntero l/e actualmente).
+    SEEK_END: el desplazamiento se establece en el tamaño del archivo más bytes compensados(final del archivo).

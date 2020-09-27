@@ -1,0 +1,109 @@
+1.
+a) 
+#df -T
+S.ficheros     Tipo     bloques de 1K  Usados Disponibles Uso% Montado en
+udev           devtmpfs       1999860       0     1999860   0% /dev
+tmpfs          tmpfs           404424    6144      398280   2% /run
+/dev/sda1      ext4          21979340 6327736    14512048  31% /
+tmpfs          tmpfs          2022108   22792     1999316   2% /dev/shm
+tmpfs          tmpfs             5120       4        5116   1% /run/lock
+tmpfs          tmpfs          2022108       0     2022108   0% /sys/fs/cgroup
+tmpfs          tmpfs           404424     120      404304   1% /run/user/1000
+/dev/sdb1      fuseblk       30309436  257832    30051604   1% /media/ubuntu/MDD
+
+b)
+#df -i
+c) 
+#df -h
+
+
+2.
+pr.txt:
+Fichero: 'pr.txt'
+fichero regular
+Nodo-i: 938240
+Enlaces: 2
+
+sl_pr (symbolic link):
+Fichero: 'sl_pr' -> 'pr.txt'
+enlace simbólico
+Nodo-i: 938278
+Enlaces: 1
+
+hl_pr (hard link):
+Fichero: 'hl_pr'
+fichero regular
+Nodo-i: 938240
+Enlaces: 2
+
+El número de links son las veces que aparece en la tabla de ficheros.
+Sí, pr.txt y hl_pr tienen el mismo inodo, porque es un hard link y apunta al mismo nodo.
+
+
+
+#cat sl_pr
+esto es una prueba
+#namei sl_pr
+f: sl_pr
+ l sl_pr -> pr.txt
+   - pr.txt
+#readlink sl_pr
+pr.txt
+
+#cat hl_pr
+esto es una prueba
+#namei hl_pr
+f: hl_pr
+ - hl_pr
+#readlink hl_pr
+
+En namei de sl tenemos un enlace que apunta a pr.txt y en readlink muestra hacia donde apunta, en cambio en hl no tiene enlace por lo tanto no lo muestra.
+
+
+
+#stat sl_pr
+Fichero: 'sl_pr' -> 'pr.txt'
+  Tamaño: 6         	Bloques: 0          Bloque E/S: 4096   enlace simbólico
+Dispositivo: 801h/2049d	Nodo-i: 938278      Enlaces: 1
+Acceso: (0777/lrwxrwxrwx)  Uid: ( 1000/  ubuntu)   Gid: ( 1000/  ubuntu)
+Acceso: 2017-11-30 13:00:56.163857696 +0100
+Modificación: 2017-11-30 13:00:53.995853226 +0100
+      Cambio: 2017-11-30 13:00:53.995853226 +0100
+    Creación: -
+
+#cat sl_pr
+cat: sl_pr: No existe el archivo o el directorio
+#namei sl_pr
+f: sl_pr
+ l sl_pr -> pr.txt
+     pr.txt - No existe el archivo o directorio
+#readlink sl_pr
+pr.txt
+
+
+#stat hl_pr
+Fichero: 'hl_pr'
+  Tamaño: 19        	Bloques: 8          Bloque E/S: 4096   fichero regular
+Dispositivo: 801h/2049d	Nodo-i: 938240      Enlaces: 1
+Acceso: (0664/-rw-rw-r--)  Uid: ( 1000/  ubuntu)   Gid: ( 1000/  ubuntu)
+Acceso: 2017-11-30 13:02:47.168102308 +0100
+Modificación: 2017-11-30 13:00:40.955826604 +0100
+      Cambio: 2017-11-30 13:21:08.247386752 +0100
+    Creación: -
+
+#cat hl_pr
+esto es una prueba
+#namei hl_pr
+f: hl_pr
+ - hl_pr
+#readlink hl_pr
+
+Se puede ver que en sl_pr nos dice que el fichero no existe, por tanto no saca el contenido y en la ruta nos dice que hay un error. En cambio en hl_pr permanece todo igual.
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+SOBRE ALARM1:
+1. El procès es bloqueja i quan li arriba el senyal d'alarma que ha programat, executa la resposta a l'alarma i finalitza el procés.
+2. No és el mateix comportament, mostra Killed: 9
+3. Els missatges els mostra la shell mostrant la causa de l'aturada. El waitpid recull amb l'&status l'estat de finalització.
+4. No caldria, ja que la resposta per defecte acaba el procés. No s'executa en cap cas.
+
+SOBRE ALARM2:
+1. No ha funcionat, ja que la comanda -ALRM de l'altre terminal li enviava falsos signals d'alarma diferents dels que ja te el procés i avançava més ràpid del compte.
+2. No, sigstop i sigkill no es poden reprogramar.
+3. Comprovant si alarm retorna 0. Si ho fa és que ha exhaurit el temps. Sinò ignorarem el tractament.
+
+SOBRE ALARM3:
+1. Les reben els dos, cada procés rep els que crea. Es veu creant una variable que guardi el valor que retorna el fork i posant un if comparant-ho amb == 0 i després amb != 0 i condicioni aixi la creació de noves alarmes.
+
+SOBRE ALARM4:
+1. Cada procés en programa 10. Les reben els 2, però cadascú les que ha creat. El pare s'ha d'esperar que el fill acabi i li envii un sigalarm abans de poder desbloqujar-se i començar a crear les seves alarmes.
+

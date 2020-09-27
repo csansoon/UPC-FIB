@@ -1,0 +1,26 @@
+1-
+Creación pipe
+	#mknod pipe p
+	#cat > pipe
+	#cat < pipe
+
+2-
+No es posible comunicar dos comandos 'cat' desde dos terminales diferentes a través de un pipe sin nombre, puesto que estos, solo se pueden desde porcesos que tengan parentesco. 
+Sí se pueden comunicar si se ejecutan desde el mismo terminal.
+
+2-
+Código
+	....
+	dup2(4,0);
+	close(4);
+	...
+
+3-
+socketMng.c
+
+createSocket:
+Como bien indica el nombre de la funcion, esta lo crea y sus parametros, su dirección y el nombre seleccionado. Además pone el protocolo a 0, el desriptor de dominio AF_UNIX y el tipo SOCK_STREAM. Trata el error, en caso de que sea < 0. 
+Inicia un variable con el valor de retorno de bind y comprueba si hay error antes de cerrar. Del mismo modo ocurre con listen y este pone el socket en modo pasivo para permitir la entrada de una transmisión.
+
+serverConnection:
+Con socket creado en la funcion anterior ejecuta y comprueba si realmente el socket existe, si se ha enlazado y en el modo que està. Si cumple todos lo parametros indicados retorna un 1. 

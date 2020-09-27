@@ -1,0 +1,123 @@
+18. El pare pot saber el PID dels seus fills ja que el fork el retorna després de crear-los. Els processos poden usar getpid() per saber el seu PID.
+
+19. S'executarà en cas de que exclp falli abans de fer la mutació, ja que el codi no s'haurà sobreescrit.
+
+20. Apareixen:
+dr-xr-xr-x 2 alumne alumne 0 oct  5 16:40 attr
+-rw-r--r-- 1 alumne alumne 0 oct  5 16:40 autogroup
+-r-------- 1 alumne alumne 0 oct  5 16:40 auxv
+-r--r--r-- 1 alumne alumne 0 oct  5 16:40 cgroup
+--w------- 1 alumne alumne 0 oct  5 16:40 clear_refs
+-r--r--r-- 1 alumne alumne 0 oct  5 16:40 cmdline
+-rw-r--r-- 1 alumne alumne 0 oct  5 16:40 comm
+-rw-r--r-- 1 alumne alumne 0 oct  5 16:40 coredump_filter
+-r--r--r-- 1 alumne alumne 0 oct  5 16:40 cpuset
+lrwxrwxrwx 1 alumne alumne 0 oct  5 16:40 cwd -> /home/alumne/Desktop/S3
+-r-------- 1 alumne alumne 0 oct  5 16:40 environ
+lrwxrwxrwx 1 alumne alumne 0 oct  5 16:40 exe -> /home/alumne/Desktop/S3/myPS
+dr-x------ 2 alumne alumne 0 oct  5 16:40 fd
+dr-x------ 2 alumne alumne 0 oct  5 16:40 fdinfo
+-rw-r--r-- 1 alumne alumne 0 oct  5 16:40 gid_map
+-r-------- 1 alumne alumne 0 oct  5 16:40 io
+-r--r--r-- 1 alumne alumne 0 oct  5 16:40 limits
+-rw-r--r-- 1 alumne alumne 0 oct  5 16:40 loginuid
+dr-x------ 2 alumne alumne 0 oct  5 16:40 map_files
+-r--r--r-- 1 alumne alumne 0 oct  5 16:40 maps
+-rw------- 1 alumne alumne 0 oct  5 16:40 mem
+-r--r--r-- 1 alumne alumne 0 oct  5 16:40 mountinfo
+-r--r--r-- 1 alumne alumne 0 oct  5 16:40 mounts
+-r-------- 1 alumne alumne 0 oct  5 16:40 mountstats
+dr-xr-xr-x 5 alumne alumne 0 oct  5 16:40 net
+dr-x--x--x 2 alumne alumne 0 oct  5 16:40 ns
+-r--r--r-- 1 alumne alumne 0 oct  5 16:40 numa_maps
+-rw-r--r-- 1 alumne alumne 0 oct  5 16:40 oom_adj
+-r--r--r-- 1 alumne alumne 0 oct  5 16:40 oom_score
+-rw-r--r-- 1 alumne alumne 0 oct  5 16:40 oom_score_adj
+-r-------- 1 alumne alumne 0 oct  5 16:40 pagemap
+-r-------- 1 alumne alumne 0 oct  5 16:40 personality
+-rw-r--r-- 1 alumne alumne 0 oct  5 16:40 projid_map
+lrwxrwxrwx 1 alumne alumne 0 oct  5 16:40 root -> /
+-rw-r--r-- 1 alumne alumne 0 oct  5 16:40 sched
+-r--r--r-- 1 alumne alumne 0 oct  5 16:40 schedstat
+-r--r--r-- 1 alumne alumne 0 oct  5 16:40 sessionid
+-rw-r--r-- 1 alumne alumne 0 oct  5 16:40 setgroups
+-r--r--r-- 1 alumne alumne 0 oct  5 16:40 smaps
+-r-------- 1 alumne alumne 0 oct  5 16:40 stack
+-r--r--r-- 1 alumne alumne 0 oct  5 16:39 stat
+-r--r--r-- 1 alumne alumne 0 oct  5 16:40 statm
+-r--r--r-- 1 alumne alumne 0 oct  5 16:39 status
+-r-------- 1 alumne alumne 0 oct  5 16:40 syscall
+dr-xr-xr-x 3 alumne alumne 0 oct  5 16:40 task
+-r--r--r-- 1 alumne alumne 0 oct  5 16:40 timers
+-rw-r--r-- 1 alumne alumne 0 oct  5 16:40 uid_map
+-r--r--r-- 1 alumne alumne 0 oct  5 16:40 wchan
+
+He utilitzat ls -l.
+
+21. 
+
+Fitxer cmdline: ./myPSroot
+
+Fitxer status:
+Name:	myPS
+State:	R (running)
+Tgid:	7708
+Ngid:	0
+Pid:	7708
+PPid:	2644
+TracerPid:	0
+Uid:	1001	1001	1001	1001
+Gid:	1001	1001	1001	1001
+FDSize:	256
+Groups:	4 24 27 30 46 113 128 1001 
+NStgid:	7708
+NSpid:	7708
+NSpgid:	7708
+NSsid:	2644
+VmPeak:	    4324 kB
+VmSize:	    4228 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	     684 kB
+VmRSS:	     684 kB
+VmData:	      56 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	    1944 kB
+VmPTE:	      28 kB
+VmPMD:	      12 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+Threads:	1
+SigQ:	0/31338
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000000
+SigIgn:	0000000000000000
+SigCgt:	0000000000000000
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	0000003fffffffff
+CapAmb:	0000000000000000
+Seccomp:	0
+Cpus_allowed:	ff
+Cpus_allowed_list:	0-7
+Mems_allowed:	00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	0
+nonvoluntary_ctxt_switches:	85
+
+El fitxer environ mostra les variables d'estat corresponents a la ubicació del procés, mentre que les de la comanda env mostra on s'ha executat la comanda.
+
+El estat del procés és R (running) i el temps consumit és 133016 ticks de clock
+
+
+
+22. No s'hi pot accedir, ja que el fill ja ha acabat la execució, només havia de fer un ps.
+
+23. Environ no es pot mostrar. Status si: Es troba en estat Z (zombie) i no cmdline no conté res.
+
+24. cwd apunta al directori on està guardat l'arxiu que crea el procés. I exe apunta al executable del procés. CWD és la carpeta on està guardat el procés i exe és l'executable del procés. En aquesta versió s'hi pot accedir, ja que com que no es muta, el codi encara segueix en el while(1) i com que no ha acabat s'hi pot accedir encara.
+
+25. Es pot accedir als tres fitxers, ja que es troba en estat R (running). La versió anterior no ho permetia, ja que el programa no s'estava executant. Aquesta versió té environ i cmdline

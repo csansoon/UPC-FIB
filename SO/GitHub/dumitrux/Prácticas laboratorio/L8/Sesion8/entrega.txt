@@ -1,0 +1,16 @@
+Ppregunta 64.
+    Inicio
+    Fin
+
+    Debido a que el canal de salida pasa a ser el archivo.
+
+
+Ppregunta 65.
+No acaba el programa padre y el hijo tampoco, ya que el canal nunca se cierra y el hijo se queda
+bloqueado esperando que llegue mas cosa por la pipe asta que se cierre el cana.
+
+
+Ppregunta 66. 
+Si quisiéramos que el lector también pudiera enviar un mensaje al escritor ¿podríamos utilizar la misma pipe con nombre o deberíamos crear otra? Razona la respuesta.
+Sí, abriendo y cerrando canales cuando necesitemos.
+

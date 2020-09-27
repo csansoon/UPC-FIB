@@ -1,0 +1,33 @@
+1. fin ejecución
+
+
+2. ./es1 < previo.txt 
+
+ls -l | grep es
+Lista, con ls -l, unicamente los archivos que contenian "es" en el nombre, con grep es.
+
+
+3.
+ps -e u | grep bash
+
+
+4.
+En el primer caso (representación interna con 4 bytes): B)
+En el segundo caso (representacion en String con 5 bytes): 10562
+
+En la representación interna no se puede ver el número ya que no esta en codigo ASCII sino como entero, en el segundo caso se puede ver el numero.
+
+
+6.
+a)
+myDriver1 -> int read_driver_1 (struct file *f, char __user *buffer, size_t s, loff_t *off);
+myDriver2 -> int read_driver_2 (struct file *f, char __user *buffer, size_t s, loff_t *off);
+
+b.
+Major y minor son parametros de identificación de un dispositivo físico. 
+Major: indentifica el tipo de dispositivo.
+Minor: instancia concreta respecto al major.
+
+MyDriver1 -> major=249 minor=0
+MyDriver2 -> major=250 minor=0
+

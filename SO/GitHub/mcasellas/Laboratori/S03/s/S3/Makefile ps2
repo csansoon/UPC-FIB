@@ -1,0 +1,9 @@
+all:myPS2
+
+myPS2:myPS2.c
+	gcc -o myPS2 myPS2.c
+
+clean:
+	rm -f myPS2
+
+

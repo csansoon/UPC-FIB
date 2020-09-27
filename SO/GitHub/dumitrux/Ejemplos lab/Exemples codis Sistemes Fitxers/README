@@ -1,0 +1,10 @@
+1_de_2.c: Escribe 1 byte de cada 2 del fichero que se le pasa como parametro en su salida estandard
+ocreat.c: Muestra como funciona el flag O_CREAT
+otrunc.c: Muestra como fucniona el flag O_TRUNC
+read_con_lseek.c: Muestra como avanza el puntero de lectura/escritura cada vez que hacemos un read. La posicion actual se coge con lseek. El fichero de lectura es un paramtero.
+tamanyo_con_lseek.c: Calcula el tamaño de un fichero con lseek. El fichero del cual calculamos el tamanyo es un parametro.
+ve_a_x.c:Mueve el puntero de lectura/escritura a una posicion concreta y lee un byte.
+lectura_con_buffer.c: Lee de un fichero pero en lugar de hacerlo de byte en byte lo hace con un buffer. Este tipo de accesos es mas eficiente que reduce el numero de llamadas a sistemas
+escribe_enteros.c: Escribe enteros (en formato binario) en un fichero que recibe como parametros. Escribe siempre 100 numeros a partir del numero que recibe en argv[2]
+lee_enteros_escribe_chars.c: Leer enterios (en formato binario) de un fichero que recibe como parametro y lo escribe (en ascii) por la salida std. 
+

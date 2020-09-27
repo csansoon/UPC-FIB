@@ -1,0 +1,117 @@
+	ejemplo_fork1:
+	
+Es mostra:
+
+Soy el proceso 2343 // Aquest correspon al procés pare
+Soy el proceso 2344 // Aquest correspon al procés fill
+
+El pare crea el fill, però el pare no ha d'esperar que el fill acabi. Per això es mostren en aquest ordre.
+
+	ejemplo_fork2:
+
+Es mostra:
+
+Antes del fork: Soy el proceso 2358 // És el PID del pare abans de fer cap fork
+
+PADRE: Soy el proceso 2358 // Com que el fork només ha creat el procés fill i el pare no ha d'esperar que el fill acabi el fork no retorna ni error ni 0 i per tant s'executa el cas per defecte, el del PID del pare.
+
+Los DOS: Soy el proceso 2358 // S'arriba al final del codi i es mostra el procés actual que s'està executant. En aquest cas, el del pare.
+
+HIJO: Soy el proceso 2359 // Ha acabat l'execució del pare i comença la del fill. Com que el fork li ha retornat 0, s'executa la instrucció de la PID del fill.
+
+Los DOS: Soy el proceso 2359 // S'arriba al final del codi del fill i es mostra quin procés s'està executant. En aquest cas, el del fill. Hi ha arribat perquè dins el case 0 no hi ha cap break.
+
+	ejemplo_fork3:
+
+Es mostra:
+
+Antes del fork: Soy el proceso 2382 // Es mostra el PID del pare abans que es faci el fork.
+
+PADRE: Soy el proceso 2382 // El pare continua executant-se, ja que no ha d'esperar que el fill s'executi. Com que el fork no retorna ni -1 ni 0 s'executa el cas per defecte i s'escriu el PID del pare.
+
+Solo lo ejecuta el padre: Soy el proceso 2382 // El pare executa el final del codi i escriu altre cop l'PID.
+
+
+HIJO: Soy el proceso 2383 // El fill comença a executar-se, el fork li otorga el 0 i s'escriu el seu PID. Com que arriba a un exit dins la condició deixa d'executar-se.
+
+	ejemplo_fork4:
+
+Es mostra:
+
+Antes del fork: Soy el proceso 2389
+PADRE: Soy el proceso 2389
+Solo lo ejecuta el padre: Soy el proceso 2389
+HIJO: Soy el proceso 2390
+HIJO acaba: Soy el proceso 2390
+
+El pare acaba abans la execució que el fill.
+
+	ejemplo_fork5:
+
+Es mostra:
+
+Antes del fork: Soy el proceso 2653 // Ho mostra el pare, ja que comença a executar-se.
+
+PADRE: Soy el proceso 2653 // Un cop fet el fork, el PID té valor diferent de 0 o -1 i s'executa el cas per defecte. S'escriu la primera part, l'PID del pare.
+
+HIJO: Soy el proceso 2654 // Com que el pare es troba amb un waitpid, es comença a executar el fill, que té de PID el valor de 0.
+
+HIJO:La variable_global vale A y la local a // S'acaba d'executar el cas 0 escrivint el valor de les variables.
+
+PADRE:La variable_global vale A y la local a // Com que el fill arriba a un exit, el pare continua executant-se i mostra el valor de les variables.
+
+Solo lo ejecuta el padre: Soy el proceso 2653 // El pare arriba al final del codi.
+
+	
+	ejemplo_fork6:
+
+No serà el mateix, ja que com que no hi ha cap waitpid, els dos processos s'executen a al vegada, i com que el processador alterna entre ells i els dos tarden en executar-se, les sortides són diferents.
+
+ 	ejemplo_exec1:
+
+Es mostra:
+
+Soy el proceso: 3248
+total 27104
+-rw-r--r--@ 1 marccasellas  staff      873  4 oct 16:37 Makefile.ejemplos
+-rw-r--r--@ 1 marccasellas  staff      615  2 feb  2012 README_S3
+-rw-r--r--@ 1 marccasellas  staff     5145  4 oct 09:04 S3.tar.gz
+-rwxr-xr-x  1 marccasellas  staff     8756  4 oct 10:05 ejemplo_exec1
+-rw-r--r--@ 1 marccasellas  staff      296  2 feb  2012 ejemplo_exec1.c
+-rwxr-xr-x  1 marccasellas  staff     8812  4 oct 10:05 ejemplo_exec2
+-rw-r--r--@ 1 marccasellas  staff      302  2 feb  2012 ejemplo_exec2.c
+-rwxr-xr-x  1 marccasellas  staff     8756  4 oct 10:05 ejemplo_fork1
+-rw-r--r--@ 1 marccasellas  staff      297  2 feb  2012 ejemplo_fork1.c
+-rwxr-xr-x  1 marccasellas  staff     8812  4 oct 10:05 ejemplo_fork2
+-rw-r--r--@ 1 marccasellas  staff      900  2 feb  2012 ejemplo_fork2.c
+-rwxr-xr-x  1 marccasellas  staff     8796  4 oct 10:05 ejemplo_fork3
+-rw-r--r--@ 1 marccasellas  staff      972  2 feb  2012 ejemplo_fork3.c
+-rwxr-xr-x  1 marccasellas  staff     8844  4 oct 16:45 ejemplo_fork4
+-rw-r--r--@ 1 marccasellas  staff     1189  4 oct 16:41 ejemplo_fork4.c
+-rwxr-xr-x  1 marccasellas  staff     8900  4 oct 10:42 ejemplo_fork5
+-rw-r--r--@ 1 marccasellas  staff     1463  4 oct 10:41 ejemplo_fork5.c
+-rwxr-xr-x  1 marccasellas  staff     8988  4 oct 10:05 ejemplo_fork6
+-rw-r--r--@ 1 marccasellas  staff     1724  2 feb  2012 ejemplo_fork6.c
+-rwxr-xr-x  1 marccasellas  staff     8908  4 oct 16:51 ejemplo_fork7
+-rw-r--r--@ 1 marccasellas  staff     1379  4 oct 16:52 ejemplo_fork7.c
+-rw-r--r--@ 1 marccasellas  staff     7659  4 mar  2015 listaParametros
+-rw-r--r--@ 1 marccasellas  staff  6300135  4 oct 10:45 out_fork6
+-rw-r--r--@ 1 marccasellas  staff  6300135  4 oct 10:43 out_fork6v2
+-rw-r--r--@ 1 marccasellas  staff     2916  4 oct 16:35 previo.txt 
+
+
+S'executa un ls -l. Només es mostra el PID una vegada, ja que el execlp esborra la resta de codi del procés pel del ls.
+
+	ejemplo_exec2:
+
+Mostra per pantalla 3 PID's de 2 programes:
+
+Soy el proceso: 3279 // S'executa el codi corresponent al ejemplo_exec2 fins al exelp
+Soy el proceso 3279 // Es carrega el codi corresponent al ejemplo_fork1, per  això es manté el PID.
+Soy el proceso 3280 // Es fa el fork i es mostra el PID del fill del procés.
+
+
+Pàgines del manual:
+
+waitpid -> pag 2
+exit() -> pag 3

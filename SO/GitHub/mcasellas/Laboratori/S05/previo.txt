@@ -1,0 +1,90 @@
+-- mem1_previo --
+       U atoi@@GLIBC_2.2.5
+0000000000601058 B __bss_start
+0000000000601058 b completed.7585
+0000000000601048 D __data_start
+0000000000601048 W data_start
+0000000000400580 t deregister_tm_clones
+0000000000400600 t __do_global_dtors_aux
+0000000000600e18 t __do_global_dtors_aux_fini_array_entry
+0000000000601050 D __dso_handle
+0000000000600e28 d _DYNAMIC
+0000000000601058 D _edata
+0000000000601060 B _end
+                 U exit@@GLIBC_2.2.5
+00000000004007e4 T _fini
+0000000000400620 t frame_dummy
+0000000000600e10 t __frame_dummy_init_array_entry
+0000000000400970 r __FRAME_END__
+0000000000601000 d _GLOBAL_OFFSET_TABLE_
+                 w __gmon_start__
+0000000000400820 r __GNU_EH_FRAME_HDR
+00000000004004a8 T _init
+0000000000600e18 t __init_array_end
+0000000000600e10 t __init_array_start
+00000000004007f0 R _IO_stdin_used
+                 w _ITM_deregisterTMCloneTable
+                 w _ITM_registerTMCloneTable
+000000000060105c B j
+0000000000600e20 d __JCR_END__
+0000000000600e20 d __JCR_LIST__
+                 w _Jv_RegisterClasses
+00000000004007e0 T __libc_csu_fini
+0000000000400770 T __libc_csu_init
+                 U __libc_start_main@@GLIBC_2.2.5
+0000000000400665 T main
+00000000004005c0 t register_tm_clones
+                 U sprintf@@GLIBC_2.2.5
+0000000000400550 T _start
+                 U strlen@@GLIBC_2.2.5
+0000000000400646 T suma
+0000000000601058 D __TMC_END__
+                 U write@@GLIBC_2.2.5
+
+B -> Dades sense inicialitzar
+D -> Dades inicialitzades (globals)
+r -> Dades de nomes lectura
+t -> Dades sense inicialitzar per a objectes petits
+U -> simbol sense definir
+W -> Simbol feble
+
+
+És possible conèixer la direcció de j, ja que es tracta d'una variable global, la i, en canvi és local i es tracta d'una dada sense inicialitzar. La j està al la zona de dades i la i al heap.
+
+Suma es troba a la direcció 0000000000400646
+
+
+
+
+Per compilar gcc -Wall mem1_previo.c -o mem1_previo -static
+
+-- mem2_previo --
+MIDA HEAP I DATA:
+
+mem2_previo:
+  n = 10:
+    HEAP = 0
+    STACK: 135168
+    DATA: 6459392
+  n = 40000:
+    HEAP = 0
+    STACK: 135168
+    DATA: 163840
+
+mem2_previo_v2:
+  n = 10:
+    HEAP: 4096
+    DATA: 4096
+
+  n= 40000:
+    HEAP = 163840
+    DATA = 4096
+
+    Si, que en el primer cas el heap no existeix, ja que no es s'utilitza.
+
+-- mem3_previo --
+
+Apareix l'error:
+  Addresses:
+  	p: 0x10963f030
+  Segmentation fault: 11

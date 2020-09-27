@@ -1,0 +1,36 @@
+#alarm1:
+	1-	A los 5 segundos no se imprime nada. El temporizador es de 10 segundos alarm(10);
+		A los 10 segundos salta un mensaje en pantalla que pone: Alarm clock.
+
+	2-	No. No termina de ejecutarse el programa. Ya que se finaliza antes. 
+		No se recibe el mensaje de la alarma de reloj. Se recibe el siguiente mensaje en terminal: "Killed ./alarm1"
+
+	3-	El proceso padre, es decir, el proceso que muta al ejecutable que se indique. Puesto que en el pseudo código de la shell en ningún momento aparece nada que imprima.
+		La shell recoge el estado de finalización del proceso que ejecuta alarm1 con la función waitpid(pid_h, &status, 0), con la cual quedará escrito en la variable status. Esta recogerá el valor del "exit(valor)".
+		
+	4-	Sí, es necesario, para indicarle a la shell un error. Se ejecuta en caso de que se salga del sigsuspend
+		por cualquier error (debido a que alarm termina el proceso directamente y nunca saldría de sigsuspend, solo en caso de error).
+
+
+#alarm2:
+	1-	No, el proceso escribe el mensaje de los 10 segundos aunque no han pasado 10 segundos. No ha funcionado.
+	2-	No, se pueden modificar todos los tratamientos para cualquier signal menos SIGKILL y SIGSTOP.
+	3-	Cambiando la linea de codigo:
+		alarm(10);	por:
+		if (alarm(10) > 0) error_y_exit("alarm", 1);
+
+
+#alarm3:
+	1-	Los dos reciben su propio signal. Se puedeo comprobar lanzando un signal (kill -ALRM pid) a cada uno de ellos y con ambos sigue funcionando.
+
+
+#alarm4:
+	1-	Solamente el proceso padre programa un SIGALRM. Pero ambos se quedan esperando uno. Pero solo el padre (quien lo ha programado) lo recibe y por lo tanto es el único que imprime la salida.
+		Se puede comprobar mandando un SIGALRM al proceso hijo y entonces empieza a funcionar el contador. En caso contrario el hijo no deja de esperar en el sigsuspend.
+
+
+#ejemplo_waitpid
+		if(pid > 0) {
+			if(WIFEXITED(res)) sprintf(buff,"Termina el proceso %d con exito.\n",pid);
+			if(WIFSIGNALED(res)) sprintf(buff,"Termina el proceso %d por un signal.\n",pid);		
+		}

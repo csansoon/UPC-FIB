@@ -1,0 +1,31 @@
+1. Crea una pipe con nombre mediante el comando mknod. Redireccionar entre 2 bonus_per_path_cell
+
+1a shell
+    mknod pipe p
+    cat > pipe
+
+2a shell
+    cat < pipe
+
+¿Es posible comunicar los dos comandos ‘cat’ desde dos terminales diferentes a través de una pipe sin nombre (por ejemplo, utilizando un pipeline de la shell visto en la sesión anterior)? ¿y desde el mismo terminal? Razona la respuesta en el fichero “previo.txt”.
+
+    1)No 2)Si : Ja que al pipe sense nom només es pot executar des del mateix terminal, que ha de cridar als dos processos
+
+Escribe en el fichero “previo.txt” el fragmento de código que deberíamos añadir a un programa cualquiera para redireccionar su entrada estándar al extremo de escritura de una pipe sin nombre utilizando las llamadas al sistema close y dup. Imagina que el descriptor de fichero asociado al extremo de escritura de la pipe es el 4.
+
+close(0);
+dup(4);
+close(4);
+
+Explica en el fichero “previo.txt” paso a paso lo que hacen estas dos funciones.
+
+    createSocket:
+
+        Definim la família del socket i el path del que ens han passat per referència. Cridema a socket() amb AF_UNIX i SOCK_STREAM que ens retorna el canal del socket o -1 en cas d'error i retornem el -1.
+        Si no hi ha error, amb bind() li donem un nom al socket.
+        En cas d'error, tanquem el socket i retornem -1.
+        En cas contari, fem listen pel socket per rebre connexions.
+
+    serverConnection:
+
+        Amb accept() comprovem si el socket està creat, si té un nom, i si està fent listen. En cas negatiu, retorna error. 

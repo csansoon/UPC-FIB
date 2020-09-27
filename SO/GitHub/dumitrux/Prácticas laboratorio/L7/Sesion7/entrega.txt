@@ -1,0 +1,93 @@
+Pregunta 53.
+	2. ./es1 >/dev/pts/17
+	3. ./es1 | ./es1
+	5. strace -o salida_v2 -e read ./es1_v2 < es2.c
+	   strace -o salida_v1 -e read ./es1 < es2.c
+
+En la salida_v2 hay 8 llamadas a sistema read, en cambio en la salida_v1 hay unas 1420 llamadas a sistema read. 
+Ya que en la primera version está toda la tabla ASCII. La segunda version tiene un rendimiento mayor, ya que, no necesita hacer una llamada a sistema para cada posible caracter.
+
+
+
+Pregunta 54.
+
+0 -> escribe los numeros en ascii
+1 -> escribe los numeros en formato int
+Con parametros 1 0, lo saca como string, en cambio con 0 1 en ASCII. Además en el formato 0 1 saca un número aleatorio al final de la ejecución. 
+
+
+Pregunta 55.
+Cuando lee un numero lo convierte a ascii y lo saca por la salida std. Además asume que la entrada hay un entero de 4 bytes.
+
+Pregunta 56.
+Assume que en la entrada hay numeros ascii, de longitud variable. Despues de leer el numero los escribe tal cual por la salida std en ascii tambien. Es decir, hace la funciona contraria al programa anterior.
+
+Pregunta 57.
+
+CMD                         %CPU     TIME
+./es5                        118 00:00:01
+./es1                        0.0 00:00:00
+./es5                        106 00:00:03
+./es1                        0.0 00:00:00
+./es5                        104 00:00:05
+./es1                        0.0 00:00:00
+./es5                        103 00:00:07
+./es1                        0.0 00:00:00
+./es5                        102 00:00:09
+./es1                        0.0 00:00:00
+./es5                        102 00:00:11
+./es1                        0.0 00:00:00
+
+La diferencia es que el es5 hace espera activa, hace un bucle infinito hasta que no le llega la interupcion en cambio es1 si no le entran datos no utiliza CPU. La líneas son, en es5 el while(1) y en es1 while(ret>0).
+
+
+Pregunta 58.
+	a) (salto de línea)Se ha hecho el read(salto de línea).
+	b) Ha llegado signal SIGINT
+
+
+Pregunta 59.
+No se ejecutaria interrumpe el programa.
+
+
+Pregunta 60.
+Sí. 
+249 bsg
+250 watchdog
+
+
+Pregunta 61.
+Module                  Size  Used by
+myDriver2              16384  0
+myDriver1              16384  0
+
+
+Pregunta 62.
+#sudo mknod myDevice c 149 0
+
+Pregunta 63.
+
+................................................
+Este programa escribe por la salida std todo lo que lee de la entrada std. Si no has redirigido la salida, lo que escribas en el teclado saldra por la pantalla
+Para acabar CtrlD
+................................................
+Driver 1 read operation
+Sponsored by Laboratorios Gelocatas SL
+fin ejecución
+
+Saca por pantalla el contenido de myDevice.
+
+
+Pregunta 64.
+#sudo mknod myDevice c 150 0
+
+................................................
+Este programa escribe por la salida std todo lo que lee de la entrada std. Si no has redirigido la salida, lo que escribas en el teclado saldra por la pantalla
+Para acabar CtrlD
+................................................
+DRIVER 2 READ OPERATION
+SPONSORED BY LABORATORIOS GELOCATAS SL
+fin ejecución
+
+La diferencia es que en este caso aparece todo en mayúsculas y en el anterior no.
+

@@ -1,0 +1,7 @@
+- cuentaA.c : lee de la entrada estandard y cuenta cuantas A's hay. Escribe el total en la salida estandard
+- cuantosHay.c : Implementa la combinacion de los comandos (ls agrv[1] | grep argv[2] |wc -l
+- ple_compartido.c: Programa que muestra como el puntero de lectura/escritura es compartido entre dos procesos si el open se ejecuta antes del fork. La suma de los resultados de los dos procesos es el total de A's. HAY QUE EJECUTARLO EN UNA MAQUINA UNIX, NO LINUX.
+- ple_no_compartido.c: Programa que muestra como el puntero de lectura/escritura no se comparte si el open se ejecuta despues del fork.Cada proceso recorre el fichero entero.
+- redirecciona.c : Codigo que redirecciona la entrada del programa cuentaA a argv[1] y la salida a argv[2]. VERSION 1
+- redirecciona2.c : Codigo que redirecciona la entrada del programa cuentaA a argv[1] y la salida a argv[2]. VERSION 1
+- redirecciona3.c : Codigo que redirecciona la entrada del programa cuentaA a argv[1] y la salida a argv[2]. VERSION 1

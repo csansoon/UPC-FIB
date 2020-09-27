@@ -1,0 +1,10 @@
+	Pregunta 28:
+Mostra Alarm clock i acaba l'execució, ja que es l'acció per defecte.
+
+	Pregunta 29:
+La reprogramació no es manté i s'acaba executant l'acció per defecte.
+
+	Pregunta 30:
+És concurrent
+
+

@@ -1,0 +1,94 @@
+Nota # indica comando
+
+	Sesión 1: El intérprete de comandos: shell
+PREGUNTA 1. ¿Qué comandos habéis utilizado para crear los directorios S1..S5?
+#mkdir S1
+#mkdir S2
+#mkdir S3
+#mkdir S4
+#mkdir S5
+
+	PREGUNTA 2. ¿Qué comando utilizas para listar el contenido de un directorio? ¿Qué opción hay que añadir para ver los ficheros ocultos?
+
+ls
+La opció -a	
+
+	PREGUNTA 3. ¿Qué opción hay que añadir a ls para ver información extendida de los ficheros? ¿Qué campos se ven por defecto con esa opción?
+
+-l
+
+Es veuen el tipus de fitxer, els permisos, els enllaços del sistema de fitxers, el propietari, el grup, la mida, la data e modificació i el nom.
+
+	PREGUNTA 4. ¿Qué opciones de menú has activado para extender la información que muestra el File Browser?
+	
+Edit>Preferences>List Columns: Seleccionar els camps que ens interessin.
+View>List
+	
+
+	PREGUNTA 5. ¿Qué secuencia de comandos has ejecutado para borrar un directorio, comprobar que no está y volver a crearlo?
+
+#rmdir S1
+#ls
+#mkdir S1
+
+
+	PREGUNTA 6. ¿Qué diferencia hay entre el comando cat y less?
+	
+El cat carrega en el terminal tot el contingut del fitxer. En canvi el less el mostra en un altre apartat, de manera que apretant 'q' tornem a on erem abans sense haver omplert tot el terminal.
+
+	PREGUNTA 7. ¿Para qué sirve la opción -i del comando cp? ¿Cuál es la orden para hacer un alias del comando cp que incluya la opción -i?
+
+Serveix perquè et demani una confirmació abans de sobrescriure un fitxer
+
+#alias cp='cp -i'
+
+	PREGUNTA 8. ¿Qué hace la opción -i del comando rm? ¿Y la opción -i del mv? Escribe la orden para hacer un alias del comando rm que incluya la opción -i.
+
+El primer et demana una confirmació abans d'esborrar un fitxer. L'altre fa el mateix però en el cas de voler moure un fitxer en cas de que en el directori de destí n'hi hagi un amb el mateix nom (també serveix per quan canviem el nom).
+
+	PREGUNTA 9. ¿Qué opciones de chmod has utilizado para dejar solamente los permisos de escritura? ¿Qué resultado ha devuelvo cat al intentar ver el fichero test? ¿Qué opciones de chmod has utilizado para dejar solamente los permisos de lectura? ¿Has conseguido borrarlo?
+
+#chmod ugo-r test
+#chmod o = w
+
+cat: test: Permission denied
+
+#chmod ugo-w test
+#chmod ugo=r test
+
+He pogut esborrar-lo, perquè els permisos del directori prevalen sobre els del fitxer.
+
+	PREGUNTA 10. ¿Cuál es el significado de las variables de entorno PATH, HOME y PWD? 
+
+PATH: Rutes on buscarà executables per executar comandes
+HOME: Ruta del directori HOME
+PWD: Directori Actual
+
+
+	PREGUNTA 11. La variable PATH es una lista de directorios, ¿Qué carácter hacer de separador entre un directorio y otro? 
+
+El caràcter ':'
+
+	PREGUNTA 12. ¿Qué comando has usado para definir y consultar el valor de las nuevas variables que has definido? 
+
+#export NOM=marc
+#echo $MARC
+
+
+	PREGUNTA 13. ¿Qué versión de la se ha ejecutado? ¿El ls del sistema o el que te acabas de bajar? Ejecuta el comando "which ls" para comprobarlo.
+
+S'ha executat el que he descarregat, el ./ls
+
+
+	PREGUNTA 14. ¿El directorio en el que estás, está definido en la variable PATH? ¿Qué implica esto?
+
+Si, que buscarà al directori si hi ha l'executable.
+
+PREGUNTA 15. ¿Qué programa se ha ejecutado? ¿El ls del sistema o el que te acabas de bajar? Ejecuta el comando "which ls" para comprobarlo.
+
+Als dos s'ha executat el del sistema, el de /bin/ls
+
+
+PREGUNTA 16. ¿Qué diferencia hay entre utilizar  > y >>?
+
+El primer direcciona la sortida de dades de la comanda del terminal cap a un fitxer, sobreescrivint-lo cada cop. En canvi el segon es va afegint al final del fitxer la sortida.
