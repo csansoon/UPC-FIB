@@ -1,5 +1,5 @@
 package Dominio;
-import GestionDatos.*;
+//import GestionDatos.*;
 
 public class CtrlDominio {
     //…

@@ -2,7 +2,7 @@ package Dominio;
 public class CasillaNegra extends Casilla {
     public CasillaNegra(int ncolumnas, int nfilas)
     {
-        this.setValue(x, y);
+        this.setValue(ncolumnas, nfilas);
     }
     public CasillaNegra()
     {
