@@ -15,6 +15,18 @@ public class CasillaNegra extends Casilla {
         return true; //Devolver true solo si X y Y son valores aceptados.
     }
 
+    public Boolean setFilas (int nfilas)
+    {
+        this.value[1] = nfilas;
+        return true;
+    }
+
+    public Boolean setColumnas (int ncolumnas)
+    {
+        this.value[0] = ncolumnas;
+        return true;
+    }
+
     public int[] getValue()
     {
         return value;

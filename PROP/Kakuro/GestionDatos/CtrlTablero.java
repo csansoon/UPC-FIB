@@ -1,9 +1,94 @@
 package GestionDatos;
+import java.io.FileNotFoundException;
+
+import javax.lang.model.util.ElementScanner6;
+
 import Dominio.Casilla;
 import Dominio.CasillaBlanca;
 import Dominio.CasillaNegra;
 
 public class CtrlTablero {
+
+    public static Casilla[][] loadFromFile(String filename)
+    {
+        FileManager file = new FileManager("kakuros/" + filename);
+        if (file.fileExists() == false) 
+        {
+            System.out.println("[ERROR]: El archivo \"" + filename + "\" no existe.");
+            return null;
+        }
+
+        String line = file.readNextLine();
+        int pointer = 0;
+        while (line.charAt(pointer) != ',') ++pointer;
+        int filas =     Integer.parseInt(line.substring(0,pointer));
+        int columnas =  Integer.parseInt(line.substring(pointer+1, line.length()));
+
+        String[][] textoCasilla = new String[filas][columnas];
+
+        int startPointer = 0;
+        int finalPointer = 0;
+        for (int i = 0; i < filas; ++i)
+        {
+            line = file.readNextLine();
+            startPointer = 0;
+            for (int j = 0; j < columnas; ++j)
+            {
+                finalPointer = startPointer;
+                while (finalPointer < line.length() && line.charAt(finalPointer) != ',') ++finalPointer;
+                textoCasilla[i][j] = line.substring(startPointer,finalPointer);
+                startPointer = finalPointer + 1;
+            }
+        }
+
+        Casilla[][] casilla = new Casilla[filas][columnas];
+        for (int i = 0; i < filas; ++i)
+        {
+            for (int j = 0; j < columnas; ++j)
+            {
+                Casilla c;
+                String texto = textoCasilla[i][j];
+                        if (texto == "*") c = new CasillaNegra();
+                else    if (texto == "?") c = new CasillaBlanca();
+                else
+                {
+                    if (texto.charAt(0) >= '0' && texto.charAt(0) <= '9') // Si es un dígito
+                    {
+                        pointer = 0;
+                        while (pointer < texto.length() && texto.charAt(pointer) >= '0' && texto.charAt(pointer) <= '9')
+                        ++pointer;
+                        c = new CasillaBlanca(Integer.parseInt(texto.substring(0,pointer))); // Casilla blanca con el valor del número
+                    }
+
+                    else
+                    {
+                        pointer = 0;
+                        startPointer = 0;
+                        finalPointer = 0;
+                        int ncolumnas = 0;
+                        int nfilas = 0;
+                        while (pointer < texto.length())
+                        {
+                            char id = texto.charAt(pointer);
+                            startPointer = pointer + 1;
+                            finalPointer = startPointer;
+                            while (finalPointer < texto.length() && texto.charAt(finalPointer) >= '0' && texto.charAt(finalPointer) <= '9')
+                            ++finalPointer;
+                            int value = Integer.parseInt(texto.substring(startPointer, finalPointer));
+
+                            if (id == 'C') ncolumnas = value;
+                            else if (id == 'F') nfilas = value;
+                            pointer = finalPointer;
+                        }
+                        c = new CasillaNegra(ncolumnas, nfilas);
+                    }
+                }
+                casilla[i][j] = c;
+            }
+        }
+        return casilla;
+    }
+/*
     public static Casilla[][] loadFromFile (String filename)
     {
         FileManager file = new FileManager("kakuros/" + filename);
@@ -103,4 +188,5 @@ public class CtrlTablero {
         }
         return tablero;
     }
+    */
 }

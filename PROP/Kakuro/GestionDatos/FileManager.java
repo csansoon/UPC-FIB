@@ -24,7 +24,9 @@ public class FileManager {
         }
         try
         {
-            return reader.readLine();
+            String line = reader.readLine();
+            //while (line) // Aqui queria poner que ignorara las líneas que empiezan por "#"
+            return line;
         }
         catch (IOException e)
         {
