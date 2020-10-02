@@ -1,16 +1,16 @@
 package GestionDatos;
-import java.io.FileNotFoundException;
-
-import javax.lang.model.util.ElementScanner6;
-
+import java.sql.Time;
+import Dominio.Tablero;
 import Dominio.Casilla;
 import Dominio.CasillaBlanca;
 import Dominio.CasillaNegra;
 
 public class CtrlTablero {
 
-    public static Casilla[][] loadFromFile(String filename)
+    public static Tablero loadFromFile(String filename)
     {
+
+        // Abrir el archivo:
         FileManager file = new FileManager("kakuros/" + filename);
         if (file.fileExists() == false) 
         {
@@ -18,12 +18,15 @@ public class CtrlTablero {
             return null;
         }
 
+        // Leer el tamaño del tablero (primera línea):
         String line = file.readNextLine();
         int pointer = 0;
         while (line.charAt(pointer) != ',') ++pointer;
         int filas =     Integer.parseInt(line.substring(0,pointer));
         int columnas =  Integer.parseInt(line.substring(pointer+1, line.length()));
 
+
+        //  Desgrupar el texto de cada casilla:
         String[][] textoCasilla = new String[filas][columnas];
 
         int startPointer = 0;
@@ -41,6 +44,7 @@ public class CtrlTablero {
             }
         }
 
+        // Traducir cada casilla:
         Casilla[][] casilla = new Casilla[filas][columnas];
         for (int i = 0; i < filas; ++i)
         {
@@ -48,15 +52,15 @@ public class CtrlTablero {
             {
                 Casilla c;
                 String texto = textoCasilla[i][j];
-                        if (texto == "*") c = new CasillaNegra();
-                else    if (texto == "?") c = new CasillaBlanca();
+                        if (texto.equals("*")) c = new CasillaNegra();
+                else    if (texto.equals("?")) c = new CasillaBlanca();
                 else
                 {
-                    if (texto.charAt(0) >= '0' && texto.charAt(0) <= '9') // Si es un dígito
+                    if (texto.charAt(0) >= '0' && texto.charAt(0) <= '9') // Si es un dígito, quiero leer el número completo:
                     {
                         pointer = 0;
                         while (pointer < texto.length() && texto.charAt(pointer) >= '0' && texto.charAt(pointer) <= '9')
-                        ++pointer;
+                            ++pointer;
                         c = new CasillaBlanca(Integer.parseInt(texto.substring(0,pointer))); // Casilla blanca con el valor del número
                     }
 
@@ -72,8 +76,8 @@ public class CtrlTablero {
                             char id = texto.charAt(pointer);
                             startPointer = pointer + 1;
                             finalPointer = startPointer;
-                            while (finalPointer < texto.length() && texto.charAt(finalPointer) >= '0' && texto.charAt(finalPointer) <= '9')
-                            ++finalPointer;
+                            while (finalPointer < texto.length() && texto.charAt(finalPointer) >= '0' && texto.charAt(finalPointer) <= '9') 
+                                ++finalPointer;
                             int value = Integer.parseInt(texto.substring(startPointer, finalPointer));
 
                             if (id == 'C') ncolumnas = value;
@@ -86,107 +90,74 @@ public class CtrlTablero {
                 casilla[i][j] = c;
             }
         }
-        return casilla;
-    }
-/*
-    public static Casilla[][] loadFromFile (String filename)
-    {
-        FileManager file = new FileManager("kakuros/" + filename);
-        if (file.fileExists() == false)
-        {
-            System.out.println("[debug]: El archivo no existe.");
-            return null;
-        }
+        String timeString = file.readNextLine();
+        long timeNumber = 0;
+        if (timeString != null) timeNumber = Long.parseLong(timeString);
         
-        String line;
-        line = file.readNextLine();
+        Time time = new Time(timeNumber);
 
-        String sColumnas = new String();
-        String sFilas = new String();
-
-        int l = 0;
-        while (l < line.length() && line.charAt(l) != ',')
-        {
-            sFilas = sFilas + line.charAt(l);
-            ++l;
-        }
-        ++l;
-        while (l < line.length() && line.charAt(l) != ',')
-        {
-            sColumnas = sColumnas + line.charAt(l);
-            ++l;
-        }
-
-        int filas, columnas;
-
-        try { filas = Integer.parseInt(sFilas); }
-        catch (NumberFormatException e) {
-            System.out.println("Error: Formato de filas incorrecto.");
-            return null;
-        }
-
-        try { columnas = Integer.parseInt(sColumnas);}
-        catch (NumberFormatException e) {
-            System.out.println("Error: Formato de columnas incorrecto.");
-            return null;
-        }
-
-        Casilla[][] tablero = new Casilla[filas][columnas];
-
-        int start, end;
-        for (int i = 0; i < filas; ++i)
-        {
-            line = file.readNextLine();
-            start = 0;
-            for (int j = 0; j < columnas; ++j)
-            {
-                Casilla c;
-
-                end = start;
-                while(end < line.length() && line.charAt(end) != ',') ++end;
-
-                String cell = line.substring(start,end);
-                if (cell == null) return null;
-
-                else if (cell.charAt(0) == '?') c = new CasillaBlanca(0);
-                else if (cell.charAt(0) == '*') c = new CasillaNegra(0,0);
-
-                else
-                {
-                    int index = 0;
-                    int nfilas = 0;
-                    int ncolumnas = 0;
-                    while (index < cell.length())
-                    {
-                        char id = cell.charAt(index);
-                        String value = "";
-                        ++index;
-                        while (index < cell.length() && cell.charAt(index) >= '0' && cell.charAt(index) <= '9' )
-                        {
-                            value = value + cell.charAt(index);
-                            ++index;
-                        }
-
-                        if (id == 'C')
-                        {
-                            try { ncolumnas = Integer.parseInt(value); }
-                            catch (NumberFormatException e) { ncolumnas = 0; }
-                        }
-                        else if (id == 'F')
-                        {
-                            try { nfilas = Integer.parseInt(value); }
-                            catch (NumberFormatException e) { nfilas = 0; }
-                        }
-                    }
-                    c = new CasillaNegra(ncolumnas, nfilas);
-                }
-
-                tablero[i][j] = c;
-                //tablero.setCasilla(i, j, c);
-                start = end + 1;
-            }
-        }
+        // Devolver el tablero leído:
+        file.close();
+        Tablero tablero = new Tablero(filas, columnas);
+        tablero.setCasillas(casilla);
+        tablero.setTime(time);
         return tablero;
     }
-    */
+
+    public static Boolean saveToFile(Tablero tablero, String filename, Boolean sobreescribir_archivo)
+    {
+        // Abrir el archivo limpio:
+        FileManager file = new FileManager("kakuros/" + filename);
+        if (file.fileExists() == true) 
+        {
+            if (sobreescribir_archivo == false)
+            {
+                System.out.println("[ERROR]: El archivo \"" + filename + "\" ya existe.");
+                return false;
+            }
+            file.removeFile();
+        }
+        if (file.createFile() == false) return false;
+
+        
+        Casilla[][] casilla = tablero.getCasillas();
+        int[] tamaño = tablero.getTamaño();
+
+        // Imprimir tamaño:
+        file.writeNextLine(tamaño[0] + "," + tamaño[1]);
+
+        // Imprimir línea por línea:
+        for (int i = 0; i < tamaño[0]; ++i)
+        {
+            for (int j = 0; j < tamaño[1]; ++j)
+            {
+                if (j > 0) file.write(",");
+                int[] value = casilla[i][j].getValue();
+
+                Class tipoCasilla = casilla[i][j].getClass();
+                if (tipoCasilla == CasillaBlanca.class)
+                {
+                    if (value[0] == 0) file.write("?");
+                    else file.write(Integer.toString(value[0]));
+                }
+                else
+                {
+                    if (value[0] == 0 && value[1] == 0) file.write("*");
+                    else
+                    {
+                        if (value[0] > 0) file.write("C" + value[0]);
+                        if (value[1] > 0) file.write("F" + value[1]);
+                    }
+                }
+
+            }
+            file.write("\n");
+        }
+
+        // Aqui faltaria añadir imprimir el tiempo:
+        //  ...
+
+        file.close();
+        return true;
+    }
 }

@@ -1,4 +1,6 @@
 package Dominio;
+import java.sql.Time;
+
 import GestionDatos.*;
 
 public class Tablero {
@@ -10,10 +12,12 @@ public class Tablero {
 
     public Boolean loadFromFile(String filename)
     {
-        this.casilla = CtrlTablero.loadFromFile(filename);
-        if (this.casilla == null) return false;
-        this.filas = casilla.length;
-        if (filas > 0) this.columnas = casilla[0].length;
+        Tablero newTablero = CtrlTablero.loadFromFile(filename);
+        if (newTablero == null) return false;
+
+        this.setCasillas(newTablero.getCasillas());
+        this.setTime(newTablero.getTime());
+
         return true;
     }
 
@@ -38,6 +42,32 @@ public class Tablero {
         return false;
     }
     
+    public Casilla[][] getCasillas()
+    {
+        return this.casilla;
+    }
+
+    public Boolean setCasillas(Casilla[][] casillas)
+    {
+        this.casilla = casillas;
+        this.filas = casillas.length;
+        if (this.filas > 0) this.columnas = casillas[0].length;
+        else columnas = 0;
+        
+        return true;
+    }
+
+    public Boolean setTime(Time newTime)
+    {
+        this.time = newTime;
+        return true;
+    }
+
+    public Time getTime()
+    {
+        return this.time;
+    }
+
     private Boolean filaCorrecta(int x) { return (x >= 0 && x < filas); }
     private Boolean columnaCorrecta(int y) { return (y >= 0 && y < columnas); }
 
@@ -51,13 +81,6 @@ public class Tablero {
         this.casilla = new Casilla[x][y];
 
         this.initialize();
-
-        //System.out.println();
-        //System.out.printf("[debug]: Tamaño de tablero: ");
-        //System.out.printf(Integer.toString(casilla.length));
-        //System.out.printf("x");
-        //System.out.printf(Integer.toString(casilla[0].length));
-        //System.out.println();
         return true;
     }
 
@@ -87,20 +110,18 @@ public class Tablero {
             System.out.println();
         }
         */
-
         for (int i = 0; i < filas; ++i)
         {
             for (int j = 0; j < columnas; ++j)
             {
                 this.casilla[i][j].print();
-                //System.out.printf(" ");
             }
             System.out.println();
-            //System.out.println();
         }
     }
 
     private int filas;
     private int columnas;
     private Casilla[][] casilla; 
+    private Time time;
 }

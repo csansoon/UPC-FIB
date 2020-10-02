@@ -18,7 +18,7 @@ public class CasillaBlanca extends Casilla {
     {
         if (n < 0 || n > 9) return false;
         this.value = n;
-        return false;
+        return true;
     }
 
     public void print()
@@ -29,6 +29,7 @@ public class CasillaBlanca extends Casilla {
         */
         System.out.printf("[");
         if (value == 0) System.out.printf("     ");
+        else System.out.printf("  " + this.value + "  ");
         System.out.printf("]");
     }
 

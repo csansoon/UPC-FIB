@@ -14,6 +14,20 @@ public class FileManager {
         return (this.file.exists() && this.file.isFile());
     }
 
+    public Boolean removeFile()
+    {
+        return this.file.delete();
+    }
+
+    public Boolean createFile()
+    {
+        try { return this.file.createNewFile(); }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+
     public String readNextLine()
     {
         if (reader == null)
@@ -32,6 +46,59 @@ public class FileManager {
         {
             return null;
         }
+    }
+
+    public Boolean writeNextLine(String text)
+    {
+        // Crear el writer si no existe
+        if (writer == null)
+        {
+            if (this.fileExists() == false) return false;
+            try { writer = new PrintWriter(file.getPath(), "UTF-8"); }
+            catch (IOException fe) { return false; }
+        }
+
+        try 
+        {
+            writer.println(text);
+            return true;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+
+    public Boolean write(String text)
+    {
+        // Crear el writer si no existe
+        if (writer == null)
+        {
+            if (this.fileExists() == false) return false;
+            try { writer = new PrintWriter(file.getPath(), "UTF-8"); }
+            catch (IOException fe) { return false; }
+        }
+
+        try{
+            writer.print(text);
+            return true;
+        }
+        catch (Exception e)
+        {
+            System.out.println("[debug]: Failed writting");
+            return false;
+        }
+    }
+
+    public Boolean close()
+    {
+        if (reader != null) 
+        {
+            try { reader.close(); }
+            catch (Exception e)  { return false; }
+        }
+        if (writer != null) writer.close();
+        return true;
     }
     
     public static void readFileLineByLine (String path) throws Exception 
@@ -58,7 +125,7 @@ public class FileManager {
 
     public static void writeFileLineByLine (String filename, String[] text) throws Exception
     {
-        PrintWriter writer = new PrintWriter("filename", "UTF-8");
+        PrintWriter writer = new PrintWriter(filename, "UTF-8");
         for (int i = 0; i < text.length; ++i)
         {
             writer.println(text[i]);    
@@ -76,11 +143,11 @@ public class FileManager {
         {
             System.out.println(filesInTheFolder[i]);
         }
-
     }
 
 
     private File file;
     private BufferedReader reader;
+    private PrintWriter writer;
 
 }
