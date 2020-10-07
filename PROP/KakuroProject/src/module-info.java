@@ -1,2 +1,3 @@
-module main {
+module KakuroProject {
+	requires java.sql;
 }
