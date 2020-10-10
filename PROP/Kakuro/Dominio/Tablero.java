@@ -32,6 +32,16 @@ public class Tablero {
         return tamaño;
     }
 
+    public int getNumColumnas()
+    {
+        return this.columnas;
+    }
+
+    public int getNumFilas()
+    {
+        return this.filas;
+    }
+
     public Boolean setCasilla(int x, int y, Casilla newCasilla)
     {
         if (filaCorrecta(x) && columnaCorrecta(y))
