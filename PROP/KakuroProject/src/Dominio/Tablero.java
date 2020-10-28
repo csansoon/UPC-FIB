@@ -7,7 +7,7 @@ public class Tablero {
     
     public Tablero(int x, int y)
     {
-        this.modificarTamaño(x, y);
+        this.modificarTamaï¿½o(x, y);
     }
 
     public Boolean loadFromFile(String filename)
@@ -26,10 +26,10 @@ public class Tablero {
         return casilla[x][y].getValue();
     }
 
-    public int[] getTamaño()
+    public int[] getTamaï¿½o()
     {
-        int[] tamaño = {this.filas, this.columnas};
-        return tamaño;
+        int[] tamaï¿½o = {this.filas, this.columnas};
+        return tamaï¿½o;
     }
 
     public Boolean setCasilla(int x, int y, Casilla newCasilla)
@@ -71,7 +71,7 @@ public class Tablero {
     private Boolean filaCorrecta(int x) { return (x >= 0 && x < filas); }
     private Boolean columnaCorrecta(int y) { return (y >= 0 && y < columnas); }
 
-    private Boolean modificarTamaño(int x, int y)
+    private Boolean modificarTamaï¿½o(int x, int y)
     {
         if (x < 0) return false;
         if (y < 0) return false;
