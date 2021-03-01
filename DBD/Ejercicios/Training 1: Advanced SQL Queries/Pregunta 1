@@ -1,0 +1,49 @@
+CREATE TABLE DEPARTAMENTS
+         (	NUM_DPT INTEGER,
+	NOM_DPT CHAR(20),
+	PLANTA INTEGER,
+	EDIFICI CHAR(30),
+	CIUTAT_DPT CHAR(20),
+	PRIMARY KEY (NUM_DPT));
+
+CREATE TABLE PROJECTES
+         (	NUM_PROJ INTEGER,
+	NOM_PROJ CHAR(10),
+	PRODUCTE CHAR(20),
+	PRESSUPOST INTEGER,
+	PRIMARY KEY (NUM_PROJ));
+
+CREATE TABLE EMPLEATS
+         (	NUM_EMPL INTEGER,
+	NOM_EMPL CHAR(30),
+	SOU INTEGER,
+	CIUTAT_EMPL CHAR(20),
+	NUM_DPT INTEGER,
+	NUM_PROJ INTEGER,
+	PRIMARY KEY (NUM_EMPL),
+	FOREIGN KEY (NUM_DPT) REFERENCES DEPARTAMENTS (NUM_DPT),
+	FOREIGN KEY (NUM_PROJ) REFERENCES PROJECTES (NUM_PROJ));
+
+
+INSERT INTO  PROJECTES VALUES (1,'IBDTEL','TELEVISIO',1000000);
+INSERT INTO  DEPARTAMENTS VALUES (1,'DIRECCIO',10,'PAU CLARIS','BARCELONA');
+INSERT INTO  EMPLEATS VALUES (1,'CARME',400000,'MATARO',1,1);
+
+===============================================================================
+
+Proposeu una sentència SQL per obtenir, per a tots els projectes, de quantes ciutats són els departaments dels empleats que hi treballen.
+Concretament volem, en aquest ordre, el número de projecte, el nom de projecte i el nombre de ciutats.
+
+Per al contingut corrresponent al fitxer adjunt la sortida ha de ser:
+
+NUM_PROJ NOM_PROJ
+----------------------------
+1 IBDTEL 1
+
+===============================================================================
+
+SELECT p.NUM_PROJ, p.NOM_PROJ, COUNT(DISTINCT d.CIUTAT_DPT) AS CIUTATS
+FROM PROJECTES p
+	LEFT OUTER JOIN EMPLEATS e ON p.NUM_PROJ = e.NUM_PROJ
+	LEFT OUTER JOIN DEPARTAMENTS d ON e.NUM_DPT = d.NUM_DPT
+GROUP BY p.NUM_PROJ, p.NOM_PROJ;
