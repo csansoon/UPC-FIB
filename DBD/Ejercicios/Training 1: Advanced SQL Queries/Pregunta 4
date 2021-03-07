@@ -1,0 +1,68 @@
+create table productes
+(idProducte char(9),
+nom char(20),
+mida char(20),
+preu integer check(preu>0),
+primary key (idProducte),
+unique (nom,mida));
+
+create table domicilis
+(numTelf char(9),
+nomCarrer char(20),
+numCarrer integer check(numCarrer>0),
+pis char(2),
+porta char(2),
+primary key (numTelf));
+
+create table comandes
+(numComanda integer check(numComanda>0),
+instantFeta integer not null check(instantFeta>0),
+instantServida integer check(instantServida>0),
+numTelf char(9),
+import integer check(import>0),
+primary key (numComanda),
+foreign key (numTelf) references domicilis,
+check (instantServida>instantFeta));
+
+create table liniesComandes
+(numComanda integer,
+idProducte char(9),
+quantitat integer check(quantitat>0),
+primary key(numComanda,idProducte),
+foreign key (numComanda) references comandes,
+foreign key (idProducte) references productes);
+
+insert into productes values ('p111', '4 formatges', 'gran', 21); 
+  
+insert into domicilis values ('934131415', 'pont', 47, '4', '2');
+
+insert into comandes values (110, 1091, 1101, '934131415', 42);
+
+insert into liniesComandes values (110, 'p111', 2);
+
+===============================================================================
+
+Doneu una sentència SQL per obtenir els domicilis que han fet més comandes. Si només s'han fet comandes a la botiga, volem com a resultat una tupla de valors nuls. Si no hi ha comandes de cap mena, no volem obtenir cap resultat.
+
+Nota: les comandes que s'han fet a la botiga són aquelles que tenen valor nul al telèfon.
+
+Ens interessa concretament el carrer i el número del domicili i volem el resultat ordenat per aquests atributs i en aquest ordre.
+Pel joc de proves que trobareu al fitxer adjunt, la sortida ha de ser:
+
+nomCarrer	numCarrer
+pont	47
+
+===============================================================================
+
+SELECT DISTINCT d.nomCarrer, d.numCarrer
+FROM DOMICILIS d RIGHT OUTER JOIN COMANDES c ON d.numTelf = c.numTelf
+GROUP BY d.numTelf, d.nomCarrer, d.numCarrer
+HAVING NOT EXISTS (
+	SELECT *
+	FROM DOMICILIS d2
+	WHERE 
+		(SELECT COUNT(*) FROM COMANDES c2 WHERE d2.numTelf = c2.numTelf)
+		>
+		(SELECT COUNT(*) FROM COMANDES c2 WHERE d.numTelf = c2.numTelf)
+)
+ORDER BY d.nomCarrer, d.numCarrer;
