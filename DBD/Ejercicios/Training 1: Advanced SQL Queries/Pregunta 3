@@ -1,0 +1,56 @@
+CREATE TABLE DEPARTAMENTS
+         (	NUM_DPT INTEGER,
+	NOM_DPT CHAR(20),
+	PLANTA INTEGER,
+	EDIFICI CHAR(30),
+	CIUTAT_DPT CHAR(20),
+	PRIMARY KEY (NUM_DPT));
+
+CREATE TABLE PROJECTES
+         (	NUM_PROJ INTEGER,
+	NOM_PROJ CHAR(10),
+	PRODUCTE CHAR(20),
+	PRESSUPOST INTEGER,
+	PRIMARY KEY (NUM_PROJ));
+
+CREATE TABLE EMPLEATS
+         (	NUM_EMPL INTEGER,
+	NOM_EMPL CHAR(30),
+	SOU INTEGER,
+	CIUTAT_EMPL CHAR(20),
+	NUM_DPT INTEGER,
+	NUM_PROJ INTEGER,
+	PRIMARY KEY (NUM_EMPL),
+	FOREIGN KEY (NUM_DPT) REFERENCES DEPARTAMENTS (NUM_DPT),
+	FOREIGN KEY (NUM_PROJ) REFERENCES PROJECTES (NUM_PROJ));
+
+
+INSERT INTO DEPARTAMENTS VALUES (2, NULL, NULL, NULL,'Barcelona');
+INSERT INTO  EMPLEATS VALUES (3, NULL, NULL, 'Barcelona', 2, NULL);
+
+commit;
+
+===============================================================================
+
+Per a cada ciutat de la base de dades (ja sigui de departaments o d'empleats), quants empleats hi treballen. Ordeneu el resultat per ciutat.
+
+Per al joc de proves que trobareu al fitxer adjunt, la sortida seria:
+
+CIUTAT COUNT
+___________
+Barcelona 1
+
+===============================================================================
+
+SELECT d.CIUTAT_DPT AS CIUTAT, COUNT(DISTINCT e.NUM_EMPL) AS COUNT
+FROM DEPARTAMENTS d
+	LEFT OUTER JOIN EMPLEATS e ON d.NUM_DPT = e.NUM_DPT
+WHERE d.CIUTAT_DPT IS NOT NULL
+GROUP BY d.CIUTAT_DPT
+UNION
+SELECT e.CIUTAT_EMPL AS CIUTAT, COUNT(DISTINCT e2.NUM_EMPL) AS COUNT
+FROM EMPLEATS e
+	LEFT OUTER JOIN DEPARTAMENTS d ON d.CIUTAT_DPT = e.CIUTAT_EMPL 
+	LEFT OUTER JOIN EMPLEATS e2 ON e2.NUM_DPT = d.NUM_DPT
+WHERE e.CIUTAT_EMPL IS NOT NULL
+GROUP BY e.CIUTAT_EMPL;
