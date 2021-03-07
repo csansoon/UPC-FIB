@@ -1,0 +1,47 @@
+CREATE TABLE vigilants(
+nom VARCHAR(20) PRIMARY key,
+edat integer);
+
+CREATE TABLE rondes(
+hora INTEGER,
+planta INTEGER,
+vigilant VARCHAR(20) REFERENCES vigilants,
+PRIMARY KEY(hora, planta));
+
+CREATE TABLE habitacions(
+num INTEGER,
+planta INTEGER,
+places INTEGER,
+hora INTEGER,
+minut INTEGER,
+PRIMARY KEY(num, planta),
+FOREIGN KEY(hora, planta) REFERENCES rondes);
+
+INSERT INTO vigilants(nom, edat) VALUES ('Mulder', 32);
+INSERT INTO vigilants(nom, edat) VALUES ('Scully', 30);
+
+INSERT INTO rondes(hora, planta, vigilant) VALUES (7, 1, 'Mulder');
+INSERT INTO rondes(hora, planta, vigilant) VALUES (8, 1, 'Mulder');
+INSERT INTO rondes(hora, planta, vigilant) VALUES (7, 2, 'Mulder');
+
+INSERT INTO habitacions(num, planta, places, hora, minut) VALUES (1, 1, 1, 7, 30);
+INSERT INTO habitacions(num, planta, places, hora, minut) VALUES (5, 1, 1, 7, 30);
+INSERT INTO habitacions(num, planta, places, hora, minut) VALUES (2, 1, 1, 8, 30);
+INSERT INTO habitacions(num, planta, places, hora, minut) VALUES (3, 1, 1, null, null);
+INSERT INTO habitacions(num, planta, places, hora, minut) VALUES (4, 1, 1, null, null);
+INSERT INTO habitacions(num, planta, places, hora, minut) VALUES (1, 2, 1, null, null);
+
+commit;
+
+===============================================================================
+
+La taula habitacions registra, per a cadascuna, a quina hora cal despertar els hostes (amb les columnes hora i minut). Si l'hora té el valor nul els hostes no volen ser despertats. Doneu una sentència SQL que retorni a quantes hores diferents (sense tenir en compte la columna minut) cal despertar algú. El fet de no voler ser despertat compta com una hora més.
+
+Pel joc de proves que trobareu al fitxer adjunt, la sortida seria:
+
+3
+
+===============================================================================
+
+SELECT COUNT(*)
+FROM (SELECT DISTINCT HORA FROM HABITACIONS);
