@@ -50,7 +50,12 @@ alter table assertion2 add constraint c2 check (x is null);
 
 +=================================+ ENUNCIAT +=================================+
 
-A partir de la solució de la pregunta anterior (però tenint en compte també les restriccions expressades com a vistes materialitzades), penseu si ara es poden inserir tuples a totes les taules o només en algunes. Modifiqueu, si cal, la part de l'esquema corresponent als "Create Table" eliminant-hi restriccions (el mínim nombre possible, triant amb sentit comú) per poder fer insercions a totes les taules. 
+A partir de la solució de la pregunta anterior (però tenint en compte també les
+restriccions expressades com a vistes materialitzades), penseu si ara es poden
+inserir tuples a totes les taules o només en algunes. Modifiqueu, si cal, la
+part de l'esquema corresponent als "Create Table" eliminant-hi restriccions (el
+mínim nombre possible, triant amb sentit comú) per poder fer insercions a totes
+les taules. 
 
 +=================================+ SOLUCIÓ +=================================+
 
