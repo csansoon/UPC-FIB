@@ -81,7 +81,7 @@ passenger CHAR(10),
 price NUMBER(9,2) constraint  T1 check (price < 0), 
 discount INTEGER constraint T2 check (discount > 0), 
 PRIMARY KEY (IATA1, IATA2, passenger),
-/* constraint T3 check (price - discount > 0), */ /* Esta resticción es imposible de cumplir. */
+constraint T3 check (price - discount > 0), /* Esta resticción puede cumplirse si ambos valores son NULL. */
 /* constraint T4 check (IATA1 = IATA2), */ /* Al eliminar la restricción de la tabla EXPENSES, esta restricción también se vuelve imposible de cumploir */
 foreign key (IATA1, IATA2) references expenses
 );
