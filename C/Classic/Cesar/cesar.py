@@ -1,10 +1,9 @@
 import os
 
-pathDescifrados = 'C:/Users/Sanson/Documents/UPC/C/Classic/descifrados'
-descifrados = []
-
+pathDescifrados = 'C:/Users/Sanson/Documents/UPC-FIB/C/Classic/descifrados'
+descifrados = {}
 for filename in os.listdir(pathDescifrados):
-  descifrados.append(open(os.path.join(pathDescifrados, filename), 'r', encoding="utf8").read())
+  descifrados[filename] = open(os.path.join(pathDescifrados, filename), 'r', encoding="utf8").read()
   
 fileCifrado = open("cifrado.txt", "r", encoding="utf8")
 
@@ -64,12 +63,13 @@ cifrado = arreglar_desfase(cifrado)
 
 frecuenciasCifrado = analisis_frecuencia(cifrado)
 
-similitudes = []
-for texto in descifrados:
+similitudes = {}
+for filename in descifrados:
+    texto = descifrados[filename]
     frecuenciasTexto = analisis_frecuencia(texto)
-    similitudes.append(similitud(frecuenciasCifrado, frecuenciasTexto) * 100)
+    similitudes[filename] = similitud(frecuenciasCifrado, frecuenciasTexto) * 100
 
-maxSimilitud = max(similitudes)
-numText = similitudes.index(maxSimilitud)
+maxSimilitud = max(similitudes, key = similitudes.get)
+parecido = similitudes[maxSimilitud]
 
-print(f"El texto más similar es wells_{numText + 1}, con una similitud del {maxSimilitud}.")
+print(f"El texto más similar es {maxSimilitud}, con una similitud del {parecido}%.")
