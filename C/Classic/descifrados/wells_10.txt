@@ -1,0 +1,211 @@
+Twelve Stories and a Dream
+
+﻿The Project Gutenberg EBook of Twelve Stories and a Dream, by H. G. Wells
+
+This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at gutenberg.org
+
+
+Title: Twelve Stories and a Dream
+
+Author: H. G. Wells
+
+Posting Date: September 21, 2008 [EBook #1743]
+Release Date: May, 1999
+Last Updated: March 2, 2018
+
+Language: English
+
+Character set encoding: UTF-8
+
+*** START OF THIS PROJECT GUTENBERG EBOOK TWELVE STORIES AND A DREAM ***
+
+
+
+
+Produced by Aaron Cannon, and Stephanie Johnson
+
+
+
+
+
+TWELVE STORIES AND A DREAM
+
+By H. G. Wells
+
+
+
+CONTENTS
+
+     1.  Filmer
+
+     2.  The Magic Shop
+
+     3.  The Valley of Spiders
+
+     4.  The Truth About Pyecraft
+
+     5.  Mr. Skelmersdale in Fairyland
+
+     6.  The Story of the Inexperienced Ghost
+
+     7.  Jimmy Goggles the God
+
+     8.  The New Accelerator
+
+     9.  Mr. Ledbetter's Vacation
+
+     10.  The Stolen Body
+
+     11.  Mr. Brisher's Treasure
+
+     12.  Miss Winchelsea's Heart
+
+     13.  A Dream of Armageddon
+
+
+
+
+1. FILMER
+
+In truth the mastery of flying was the work of thousands of men--this
+man a suggestion and that an experiment, until at last only one vigorous
+intellectual effort was needed to finish the work. But the inexorable
+injustice of the popular mind has decided that of all these thousands,
+one man, and that a man who never flew, should be chosen as the
+discoverer, just as it has chosen to honour Watt as the discoverer of
+steam and Stephenson of the steam-engine. And surely of all honoured
+names none is so grotesquely and tragically honoured as poor Filmer's,
+the timid, intellectual creature who solved the problem over which the
+world had hung perplexed and a little fearful for so many generations,
+the man who pressed the button that has changed peace and warfare and
+well-nigh every condition of human life and happiness. Never has that
+recurring wonder of the littleness of the scientific man in the face of
+the greatness of his science found such an amazing exemplification.
+Much concerning Filmer is, and must remain, profoundly obscure--Filmers
+attract no Boswells--but the essential facts and the concluding scene
+are clear enough, and there are letters, and notes, and casual allusions
+to piece the whole together. And this is the story one makes, putting
+this thing with that, of Filmer's life and death.
+
+The first authentic trace of Filmer on the page of history is a document
+in which he applies for admission as a paid student in physics to the
+Government laboratories at South Kensington, and therein he describes
+himself as the son of a “military bootmaker” (“cobbler” in the vulgar
+tongue) of Dover, and lists his various examination proofs of a high
+proficiency in chemistry and mathematics. With a certain want of dignity
+he seeks to enhance these attainments by a profession of poverty and
+disadvantages, and he writes of the laboratory as the “gaol” of his
+ambitions, a slip which reinforces his claim to have devoted himself
+exclusively to the exact sciences. The document is endorsed in a manner
+that shows Filmer was admitted to this coveted opportunity; but until
+quite recently no traces of his success in the Government institution
+could be found.
+
+It has now, however, been shown that in spite of his professed zeal
+for research, Filmer, before he had held this scholarship a year, was
+tempted, by the possibility of a small increase in his immediate income,
+to abandon it in order to become one of the nine-pence-an-hour computers
+employed by a well-known Professor in his vicarious conduct of those
+extensive researches of his in solar physics--researches which are still
+a matter of perplexity to astronomers. Afterwards, for the space of
+seven years, save for the pass lists of the London University, in which
+he is seen to climb slowly to a double first class B.Sc., in mathematics
+and chemistry, there is no evidence of how Filmer passed his life. No
+one knows how or where he lived, though it seems highly probable that he
+continued to support himself by teaching while he prosecuted the studies
+necessary for this distinction. And then, oddly enough, one finds him
+mentioned in the correspondence of Arthur Hicks, the poet.
+
+“You remember Filmer,” Hicks writes to his friend Vance; “well, HE
+hasn't altered a bit, the same hostile mumble and the nasty chin--how
+CAN a man contrive to be always three days from shaving?--and a sort of
+furtive air of being engaged in sneaking in front of one; even his
+coat and that frayed collar of his show no further signs of the passing
+years. He was writing in the library and I sat down beside him in the
+name of God's charity, whereupon he deliberately insulted me by covering
+up his memoranda. It seems he has some brilliant research on hand that
+he suspects me of all people--with a Bodley Booklet a-printing!--of
+stealing. He has taken remarkable honours at the University--he went
+through them with a sort of hasty slobber, as though he feared I might
+interrupt him before he had told me all--and he spoke of taking his
+D.Sc. as one might speak of taking a cab. And he asked what I was
+doing--with a sort of comparative accent, and his arm was spread
+nervously, positively a protecting arm, over the paper that hid the
+precious idea--his one hopeful idea.
+
+“'Poetry,' he said, 'Poetry. And what do you profess to teach in it,
+Hicks?'
+
+“The thing's a Provincial professorling in the very act of budding, and
+I thank the Lord devoutly that but for the precious gift of indolence I
+also might have gone this way to D.Sc. and destruction...”
+
+A curious little vignette that I am inclined to think caught Filmer in
+or near the very birth of his discovery. Hicks was wrong in anticipating
+a provincial professorship for Filmer. Our next glimpse of him is
+lecturing on “rubber and rubber substitutes,” to the Society of Arts--he
+had become manager to a great plastic-substance manufactory--and at
+that time, it is now known, he was a member of the Aeronautical
+Society, albeit he contributed nothing to the discussions of that body,
+preferring no doubt to mature his great conception without external
+assistance. And within two years of that paper before the Society of
+Arts he was hastily taking out a number of patents and proclaiming in
+various undignified ways the completion of the divergent inquiries which
+made his flying machine possible. The first definite statement to that
+effect appeared in a halfpenny evening paper through the agency of a man
+who lodged in the same house with Filmer. His final haste after his long
+laborious secret patience seems to have been due to a needless panic,
+Bootle, the notorious American scientific quack, having made an
+announcement that Filmer interpreted wrongly as an anticipation of his
+idea.
+
+Now what precisely was Filmer's idea? Really a very simple one. Before
+his time the pursuit of aeronautics had taken two divergent lines, and
+had developed on the one hand balloons--large apparatus lighter than
+air, easy in ascent, and comparatively safe in descent, but floating
+helplessly before any breeze that took them; and on the other, flying
+machines that flew only in theory--vast flat structures heavier than
+air, propelled and kept up by heavy engines and for the most part
+smashing at the first descent. But, neglecting the fact that the
+inevitable final collapse rendered them impossible, the weight of the
+flying machines gave them this theoretical advantage, that they could
+go through the air against a wind, a necessary condition if aerial
+navigation was to have any practical value. It is Filmer's particular
+merit that he perceived the way in which the contrasted and hitherto
+incompatible merits of balloon and heavy flying machine might be
+combined in one apparatus, which should be at choice either heavier or
+lighter than air. He took hints from the contractile bladders of fish
+and the pneumatic cavities of birds. He devised an arrangement of
+contractile and absolutely closed balloons which when expanded could
+lift the actual flying apparatus with ease, and when retracted by the
+complicated “musculature” he wove about them, were withdrawn almost
+completely into the frame; and he built the large framework which these
+balloons sustained, of hollow, rigid tubes, the air in which, by an
+ingenious contrivance, was automatically pumped out as the apparatus
+fell, and which then remained exhausted so long as the aeronaut desired.
+There were no wings or propellers to his machine, such as there had been
+to all previous aeroplanes, and the only engine required was the compact
+and powerful little appliance needed to contract the balloons. He
+perceived that such an apparatus as he had devised might rise with frame
+exhausted and balloons expanded to a considerable height, might
+then contract its balloons and let the air into its frame, and by an
+adjustment of its weights slide down the air in any desired direction.
+As it fell it would accumulate velocity and at the same time lose
+weight, and the momentum accumulated by its down-rush could be utilised
+by means of a shifting of its weights to drive it up in the air again
+as the balloons expanded. This conception, which is still the structural
+conception of all successful flying machines, needed, however, a vast
+amount of toil upon its details before it could actually be
+realised, and such toil Filmer--as he was accustomed to tell the
+numerous interviewers who crowded upon him in the heyday of his
+fame--“ungrudgingly and unsparingly gave.” His particular difficulty was
+the elastic lining of the contractile balloon. He found he needed a new
+substance, and in the discovery and manufacture of that new substance he
+had, as he never failed to impress upon the interviewers, “performed
+a far more arduous work than even in the actual achievement of my
+seemingly greater discovery.”
+
+But it must not be imagined that thes

@@ -1,0 +1,211 @@
+A Short History of the World, by H. G. Wells
+
+﻿The Project Gutenberg EBook of A Short History of the World, by H. G. Wells
+
+This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at gutenberg.net
+
+
+Title: A Short History of the World
+
+Author: H. G. Wells
+
+Release Date: March 2, 2011 [EBook #35461]
+[Last updated: November 3, 2011]
+
+Language: English
+
+
+*** START OF THIS PROJECT GUTENBERG EBOOK A SHORT HISTORY OF THE WORLD ***
+
+
+
+
+Produced by Donald F. Behan
+
+
+
+
+
+
+A Short History of the World
+Illustrated
+
+BY
+
+H. G. Wells
+
+
+
+J. J. Little & Ives Company
+
+New York
+
+1922
+
+Copyright, 1922, by H. G. Wells
+
+
+
+{v}
+
+PREFACE
+
+This SHORT HISTORY OF THE WORLD is meant to be read
+straightforwardly almost as a novel is read.  It gives in the most
+general way an account of our present knowledge of history, shorn
+of elaborations and complications.  It has been amply illustrated
+and everything has been done to make it vivid and clear.  From it
+the reader should be able to get that general view of history
+which is so necessary a framework for the study of it particular
+period or the history of a particular country.  It may be found
+useful as a preparatory excursion before the reading of the
+author's much fuller and more explicit _Outline of History_ is
+undertaken.  But its especial end is to meet the needs of the busy
+general reader, too driven to study the maps and time charts of
+that _Outline_ in detail, who wishes to refresh and repair his
+faded or fragmentary conceptions of the great adventure of
+mankind.  It is not an abstract or condensation of that former
+work.  Within its aim the _Outline_ admits of no further
+condensation.  This is a much more generalized History, planned
+and written afresh.
+
+{vii}
+
+
+
+ CONTENTS
+
+  CHAPTER                                                        PAGE
+  I.       THE WORLD IN SPACE                                       1
+  II.      THE WORLD IN TIME                                        5
+  III.     THE BEGINNINGS OF LIFE                                  11
+  IV.      THE AGE OF FISHES                                       16
+  V.       THE AGE OF THE COAL SWAMPS                              21
+  VI.      THE AGE OF REPTILES                                     26
+  VII.     THE FIRST BIRDS AND THE FIRST MAMMALS                   31
+  VIII.    THE AGE OF MAMMALS                                      37
+  IX.      MONKEYS, APES AND SUB-MEN                               43
+  X.       THE NEANDERTHALER AND THE RHODESIAN MAN                 48
+  XI.      THE FIRST TRUE MEN                                      53
+  XII.     PRIMITIVE THOUGHT                                       60
+  XIII.    THE BEGINNINGS OF CULTIVATION                           65
+  XIV.     PRIMITIVE NEOLITHIC CIVILIZATIONS                       71
+  XV.      SUMERIA, EARLY EGYPT AND WRITING                        77
+  XVI.     PRIMITIVE NOMADIC PEOPLES                               84
+  XVII.    THE FIRST SEA-GOING PEOPLES                             91
+  XVIII.   EGYPT, BABYLON AND ASSYRIA                              96
+  XIX.     THE PRIMITIVE ARYANS                                   104
+  XX.      THE LAST BABYLONIAN EMPIRE AND THE EMPIRE OF DARIUS I  109
+  XXI.     THE EARLY HISTORY OF THE JEWS                          115
+  XXII.    PRIESTS AND PROPHETS IN JUDEA                          122
+  XXIII.   THE GREEKS                                             127
+  XXIV.    THE WARS OF THE GREEKS AND PERSIANS                    134
+  XXV.     THE SPLENDOUR OF GREECE                                139
+  XXVI.    THE EMPIRE OF ALEXANDER THE GREAT                      145
+  XXVII.   THE MUSEUM AND LIBRARY AT ALEXANDRIA                   150
+
+{viii}
+
+  XXVIII.  THE LIFE OF GAUTAMA BUDDHA                             156
+  XXIX.    KING ASOKA                                             163
+  XXX.     CONFUCIUS AND LAO TSE                                  167
+  XXXI.    ROME COMES INTO HISTORY                                174
+  XXXII.   ROME AND CARTHAGE                                      180
+  XXXIII.  THE GROWTH OF THE ROMAN EMPIRE                         185
+  XXXIV.   BETWEEN ROME AND CHINA                                 196
+  XXXV.    THE COMMON MAN'S LIFE UNDER THE EARLY ROMAN EMPIRE     201
+  XXXVI.   RELIGIOUS DEVELOPMENT UNDER THE ROMAN EMPIRE           208
+  XXXVII.  THE TEACHING OF JESUS                                  214
+  XXXVIII. THE DEVELOPMENT OF DOCTRINAL CHRISTIANITY              222
+  XXXIX.   THE BARBARIANS BREAK THE EMPIRE INTO EAST AND WEST     227
+  XL.      THE HUNS AND THE END OF THE WESTERN EMPIRE             233
+  XLI.     THE BYZANTINE AND SASSANID EMPIRES                     238
+  XLII.    THE DYNASTIES OF SUY AND TANG IN CHINA                 245
+  XLIII.   MUHAMMAD AND ISLAM                                     248
+  XLIV.    THE GREAT DAYS OF THE ARABS                            253
+  XLV.     THE DEVELOPMENT OF LATIN CHRISTENDOM                   258
+  XLVI.    THE CRUSADES AND THE AGE OF PAPAL DOMINION             267
+  XLVII.   RECALCITRANT PRINCES AND THE GREAT SCHISM              277
+  XLVIII.  THE MONGOL CONQUESTS                                   287
+  XLIX.    THE INTELLECTUAL REVIVAL OF THE EUROPEANS              294
+  L.       THE REFORMATION OF THE LATIN CHURCH                    304
+  LI.      THE EMPEROR CHARLES V                                  309
+  LII.     THE AGE OF POLITICAL EXPERIMENTS; OF GRAND MONARCHY
+                   AND PARLIAMENTS AND REPUBLICANISM IN EUROPE    318
+  LIII.    THE NEW EMPIRES OF THE EUROPEANS IN ASIA AND OVERSEAS  329
+  LIV.     THE AMERICAN WAR OF INDEPENDENCE                       335
+
+{ix}
+
+  LV.      THE FRENCH REVOLUTION AND THE RESTORATION OF
+                   MONARCHY IN FRANCE                             341
+  LVI.     THE UNEASY PEACE IN EUROPE THAT FOLLOWED
+                   THE FALL OF NAPOLEON                           349
+  LVII.    THE DEVELOPMENT OF MATERIAL KNOWLEDGE                  355
+  LVIII.   THE INDUSTRIAL REVOLUTION                              365
+  LIX.     THE DEVELOPMENT OF MODERN POLITICAL AND SOCIAL IDEAS   370
+  LX.      THE EXPANSION OF THE UNITED STATES                     382
+  LXI.     THE RISE OF GERMANY TO PREDOMINANCE IN EUROPE          390
+  LXII.    THE NEW OVERSEAS EMPIRES OF THE STEAMSHIP AND RAILWAY  393
+  LXIII.   EUROPEAN AGGRESSION IN ASIA, AND THE RISE OF JAPAN     399
+  LXIV.    THE BRITISH EMPIRE IN 1914                             405
+  LXV.     THE AGE OF ARMAMENT IN EUROPE, AND
+                   THE GREAT WAR OF 1914-18                       409
+  LXVI.    THE REVOLUTION AND FAMINE IN RUSSIA                    415
+  LXVII.   THE POLITICAL AND SOCIAL RECONSTRUCTION OF THE WORLD   421
+           CHRONOLOGICAL TABLE                                    429
+           INDEX                                                  439
+
+
+{xi}
+
+ LIST OF ILLUSTRATIONS
+
+                                                                 PAGE
+  Luminous Spiral Clouds of Matter                                  2
+  Nebula seen Edge-on                                               3
+  The Great Spiral Nebula                                           6
+  A Dark Nebula                                                     7
+  Another Spiral Nebula                                             8
+  Landscape before Life                                             9
+  Marine Life in the Cambrian Period                               12
+  Fossil Trilobite                                                 13
+  Early Palæozoic Fossils of various Species of Lingula            14
+  Fossilized Footprints of a Labyrinthodont, Cheirotherium         15
+  Pterichthys Milleri                                              17
+  Fossil of Cladoselache                                           18
+  Sharks and Ganoids of the Devonian Period                        19
+  A Carboniferous Swamp                                            22
+  Skull of a Labyrinthodont, Capitosaurus                          23
+  Skeleton of a Labyrinthodont: The Eryops                         24
+  A Fossil Ichthyosaurus                                           27
+  A Pterodactyl                                                    28
+  The Diplodocus                                                   29
+  Fossil of Archeopteryx                                           32
+  Hesperornis in its Native Seas                                   33
+  The Ki-wi                                                        34
+  Slab of Marl Rich in Cainozoic Fossils                           35
+  Titanotherium Robustum                                           38
+  Skeleton of Giraffe-camel                                        40
+  Skeleton of Early Horse                                          40
+  Comparative Sizes of Brains of Rhinoceros and Dinoceras          41
+  A Mammoth                                                        44
+  Flint Implements from Piltdown Region                            45
+  A Pithecanthropean Man                                           46
+  The Heidelberg Man                                               46
+  The Piltdown Skull                                               47
+  A Neanderthaler                                                  49
+
+{xii}
+
+  Europe and Western Asia 50,000 years ago                   Map   50
+  Comparison of Modern Skull and Rhodesian Skull                   51
+  Altamira Cave Paintings                                          54
+  Later Palæolithic Carvings                                       55
+  Bust of Cro-magnon Man                                           57
+  Later Palæolithic Art                                            58
+  Relics of the Stone Age                                          62
+  Gray's Inn Lane Flint Implement                     

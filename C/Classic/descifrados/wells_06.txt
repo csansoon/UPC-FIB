@@ -1,0 +1,220 @@
+Mankind in the Making
+
+﻿The Project Gutenberg EBook of Mankind in the Making, by H. G. Wells
+
+This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at gutenberg.org
+
+
+Title: Mankind in the Making
+
+Author: H. G. Wells
+
+
+Release Date: December, 2004 [EBook #7058]
+This file was first posted on March 3, 2003
+Last Updated: September 17, 2016
+
+Language: English
+
+Character set encoding: UTF-8
+
+*** START OF THIS PROJECT GUTENBERG EBOOK MANKIND IN THE MAKING ***
+
+
+
+
+Produced by Michelle Shephard, Tiffany Vergon, Juliet
+Sutherland, Charles Franks and the Online Distributed
+Proofreaders
+
+
+
+
+
+
+
+
+MANKIND IN THE MAKING
+
+
+By H. G. Wells
+
+
+
+
+PREFACE
+
+
+It may save misunderstanding if a word or so be said here of the aim
+and scope of this book. It is written in relation to a previous work,
+_Anticipations_, [Footnote: Published by Harper Bros.] and together with
+that and a small pamphlet, “The Discovery of the Future,” [Footnote:
+Nature, vol. lxv. (1901-2), p. 326, and reprinted in the Smithsonian
+Report for 1902] presents a general theory of social development and of
+social and political conduct. It is an attempt to deal with social and
+political questions in a new way and from a new starting-point, viewing
+the whole social and political world as aspects of one universal
+evolving scheme, and placing all social and political activities in a
+defined relation to that; and to this general method and trend it is
+that the attention of the reader is especially directed. The two
+books and the pamphlet together are to be regarded as an essay in
+presentation. It is a work that the writer admits he has undertaken
+primarily for his own mental comfort. He is remarkably not qualified to
+assume an authoritative tone in these matters, and he is acutely aware
+of the many defects in detailed knowledge, in temper, and in training
+these papers collectively display. He is aware that at such points,
+for example, as the reference to authorities in the chapter on the
+biological problem, and to books in the educational chapter, the lacunar
+quality of his reading and knowledge is only too evident; to fill in
+and complete his design--notably in the fourth paper--he has had quite
+frankly to jerry-build here and there. Nevertheless, he ventures to
+publish this book. There are phases in the development of every science
+when an incautious outsider may think himself almost necessary, when
+sketchiness ceases to be a sin, when the mere facts of irresponsibility
+and an untrained interest may permit a freshness, a freedom of mental
+gesture that would be inconvenient and compromising for the specialist;
+and such a phase, it is submitted, has been reached in this field of
+speculation. Moreover, the work attempted is not so much special
+and technical as a work of reconciliation, the suggestion of broad
+generalizations upon which divergent specialists may meet, a business
+for non-technical expression, and in which a man who knows a little of
+biology, a little of physical science, and a little in a practical way
+of social stratification, who has concerned himself with education and
+aspired to creative art, may claim in his very amateurishness a special
+qualification. And in addition, it is particularly a business for some
+irresponsible writer, outside the complications of practical politics,
+some man who, politically, “doesn’t matter,” to provide the first
+tentatives of a political doctrine that shall be equally available for
+application in the British Empire and in the United States. To that we
+must come, unless our talk of co-operation, of reunion, is no more than
+sentimental dreaming. We have to get into line, and that we cannot do
+while over here and over there men hold themselves bound by old party
+formulae, by loyalties and institutions, that are becoming, that
+have become, provincial in proportion to our new and wider needs.
+My instances are commonly British, but all the broad project of this
+book--the discussion of the quality of the average birth and of
+the average home, the educational scheme, the suggestions for the
+organization of literature and a common language, the criticism of
+polling and the jury system, and the ideal of a Republic with an
+apparatus of honour--is, I submit, addressed to, and could be adopted
+by, any English-reading and English-speaking man. No doubt the spirit
+of the inquiry is more British than American, that the abandonment of
+Rousseau and anarchic democracy is more complete than American thought
+is yet prepared for, but that is a difference not of quality but of
+degree. And even the appendix, which at a hasty glance may seem to be
+no more than the discussion of British parochial boundaries, does indeed
+develop principles of primary importance in the fundamental schism of
+American politics between the local State government and the central
+power. So much of apology and explanation I owe to the reader, to the
+contemporary specialist, and to myself.
+
+These papers were first published in the British _Fortnightly Review_
+and in the American _Cosmopolitan_. In the latter periodical they were,
+for the most part, printed from uncorrected proofs set up from an
+early version. This periodical publication produced a considerable
+correspondence, which has been of very great service in the final
+revision. These papers have indeed been honoured by letters from men
+and women of almost every profession, and by a really very considerable
+amount of genuine criticism in the British press. Nothing, I think,
+could witness more effectually to the demand for such discussions
+of general principle, to the need felt for some nuclear matter to
+crystallize upon at the present time, however poor its quality, than
+this fact. Here I can only thank the writers collectively, and call
+their attention to the more practical gratitude of my frequently
+modified text.
+
+I would, however, like to express my especial indebtedness to my
+friend, Mr. Graham Wallas, who generously toiled through the whole of
+my typewritten copy, and gave me much valuable advice, and to Mr. C. G.
+Stuart Menteath for some valuable references.
+
+H. G. WELLS.
+
+SANDGATE, _July_, 1903.
+
+
+
+
+CONTENTS
+
+
+         PREFACE
+
+      I. THE NEW REPUBLIC
+     II. THE PROBLEM OF THE BIRTH SUPPLY
+    III. CERTAIN WHOLESALE ASPECTS OF MAN-MAKING
+     IV. THE BEGINNINGS OF THE MIND AND LANGUAGE
+      V. THE MAN-MAKING FORCES OF THE MODERN STATE
+     VI. SCHOOLING
+    VII. POLITICAL AND SOCIAL INFLUENCES
+   VIII. THE CULTIVATION OF THE IMAGINATION
+     IX. THE ORGANIZATION OF THE HIGHER EDUCATION
+      X. THOUGHT IN THE MODERN STATE
+     XI. THE MAN’S OWN SHARE
+
+   APPENDIX
+
+   A PAPER ON ADMINISTRATIVE AREAS READ BEFORE THE FABIAN SOCIETY
+
+   INDEX
+
+
+
+
+MANKIND IN THE MAKING
+
+
+
+
+I. THE NEW REPUBLIC
+
+
+Toleration to-day is becoming a different thing from the toleration
+of former times. The toleration of the past consisted very largely in
+saying, “You are utterly wrong and totally accurst, there is no truth
+but my truth and that you deny, but it is not my place to destroy you
+and so I let you go.” Nowadays there is a real disposition to accept the
+qualified nature of one’s private certainties. One may have arrived at
+very definite views, one may have come to beliefs quite binding upon
+one’s self, without supposing them to be imperative upon other people.
+To write “I believe” is not only less presumptuous and aggressive in
+such matters than to write “it is true,” but it is also nearer the
+reality of the case. One knows what seems true to one’s self, but we are
+coming to realize that the world is great and complex, beyond the utmost
+power of such minds as ours. Every day of life drives that conviction
+further home. And it is possible to maintain that in perhaps quite a
+great number of ethical, social, and political questions there is no
+absolute “truth” at all--at least for finite beings. To one intellectual
+temperament things may have a moral tint and aspect, differing widely
+from that they present to another; and yet each may be in its own way
+right. The wide differences in character and quality between one human
+being and another may quite conceivably involve not only differences in
+moral obligation, but differences in fundamental moral aspect--we may
+act and react upon each other towards a universal end, but without any
+universally applicable rule of conduct whatever. In some greater vision
+than mine, my right and wrong may be no more than hammer and anvil in
+the accomplishment of a design larger than I can understand. So that
+these papers are not written primarily for all, nor with the same
+intention towards all who read them. They are designed first for those
+who are predisposed for their reception. Then they are intended to
+display in an orderly manner a point of view, and how things look from
+that point of view, to those who are not so predisposed. These latter
+will either develop into adherents as they read, or, what is more
+likely, they will exchange a vague disorderly objection for a clearly
+defined and understood difference. To arrive at such an understanding is
+often for practical purposes as good as unanimity; for in narrowing down
+the issue to some central point or principle, we develop just how far
+those who are divergent may go together before separation or conflict
+become inevitable, and save something of our time and of our lives from
+those misunderstandings, and those secondary differences of no practical
+importance whatever, which make such disastrous waste of human energy.
+
+Now the point of view which will be displayed in relation to a number of
+wide questions in these pages is primarily that of the writer’s. But he
+hopes and believes that among those who read what he has to say, there
+will be found not only many to understand, but some to agree with him.
+In many ways he is inclined to believe the development of his views may
+be
