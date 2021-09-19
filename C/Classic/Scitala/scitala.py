@@ -9,38 +9,37 @@ cifrado = open("cifrado.txt", "r", encoding="utf8").read()
 
 ########################################
 
-print(f"Longitud del texto cifrado: {len(cifrado)}")
+def analisis_frecuencia(texto):
+  charMap = {}
 
-textosimilar = -1
-diferencia = 99999999
+  for char in texto:
+    if not char in charMap:
+        charMap[char] = 0
+    charMap[char] = charMap[char] + 1    
+  
+  return charMap
 
+def similitud(original, descifrado):
+    parecido = 0
+    for key in original:
+        if original[key] in descifrado.values():
+            parecido = parecido + 1
+    return parecido / len(original)
+
+#########################################
+
+frecuenciasCifrado = analisis_frecuencia(cifrado)
+
+similitudes = {}
 for filename in descifrados:
   texto = descifrados[filename]
-  longitud = len(texto)
-
-  if abs(longitud - len(cifrado)) < diferencia:
-    textosimilar = filename
-    diferencia = abs(longitud - len(cifrado))
-
-  print(f"Longitud del texto {filename}: {len(texto)}")
-
-print(f"Texto con longitud más similar: {filename}")
+  frecuenciasTexto = analisis_frecuencia(texto)
+  parecido = similitud(frecuenciasCifrado, frecuenciasTexto) * 100
+  similitudes[filename] = parecido
+  print(f"{filename}: {parecido}%")
 
 
-# HOLAQUETALESTAS
+maxSimilitud = max(similitudes, key = similitudes.get)
+parecido = similitudes[maxSimilitud]
 
-# r = 3
-
-# HOL
-# AQU
-# ETA
-# LES
-# TAS
-
-# HAELTOQTEALUASS
-
-# s = 5
-
-# HAELTOQTEALUASS
-
-# 5*3 = 15
+print(f"El texto más similar es {maxSimilitud}, con una similitud del {parecido}%.")
