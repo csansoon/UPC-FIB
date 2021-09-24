@@ -27,16 +27,21 @@ public:
 	void update(int deltaTime);
 	void render();
 
+	void addSpeed(float speed);
+
 private:
 	void initShaders();
 
 private:
-	Quad *quad;
+	Quad* quad, * cielo;
 	Texture texs[2];
-	TexturedQuad *texQuad[3];
+	TexturedQuad *texQuad[3], * suelo, * champi;
 	ShaderProgram simpleProgram, texProgram;
 	float currentTime;
 	glm::mat4 projection;
+
+	float PosicionChampi[2];
+	float velocidadChampi;
 
 };
 

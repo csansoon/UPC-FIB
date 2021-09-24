@@ -21,68 +21,104 @@ Scene::~Scene()
 
 void Scene::init()
 {
+	PosicionChampi[0] = 320.f;
+	PosicionChampi[1] = 0.f;
+	velocidadChampi = 0.f;
+
 	glm::vec2 geom[2] = {glm::vec2(0.f, 0.f), glm::vec2(128.f, 128.f)};
 	glm::vec2 texCoords[2] = {glm::vec2(0.f, 0.f), glm::vec2(1.f, 1.f)};
 
 	initShaders();
-	quad = Quad::createQuad(0.f, 0.f, 128.f, 128.f, simpleProgram);
-	texCoords[0] = glm::vec2(0.f, 0.f); texCoords[1] = glm::vec2(0.5f, 0.5f);
-	texQuad[0] = TexturedQuad::createTexturedQuad(geom, texCoords, texProgram);
-	texCoords[0] = glm::vec2(0.5f, 0.5f); texCoords[1] = glm::vec2(1.f, 1.f);
-	texQuad[1] = TexturedQuad::createTexturedQuad(geom, texCoords, texProgram);
-	texCoords[0] = glm::vec2(0.f, 0.f); texCoords[1] = glm::vec2(2.f, 2.f);
-	texQuad[2] = TexturedQuad::createTexturedQuad(geom, texCoords, texProgram);
+	//quad = Quad::createQuad(0.f, 0.f, 128.f, 128.f, simpleProgram);
+	//texCoords[0] = glm::vec2(0.f, 0.f); texCoords[1] = glm::vec2(8.f, 2.5f);
+	//texQuad[0] = TexturedQuad::createTexturedQuad(geom, texCoords, texProgram);
+	//texCoords[0] = glm::vec2(0.f, 0.5f); texCoords[1] = glm::vec2(0.5f, 1.f);
+	//texQuad[1] = TexturedQuad::createTexturedQuad(geom, texCoords, texProgram);
+	//texCoords[0] = glm::vec2(0.f, 0.5f); texCoords[1] = glm::vec2(0.5f, 1.f);
+	//texQuad[2] = TexturedQuad::createTexturedQuad(geom, texCoords, texProgram);
+
+	cielo = Quad::createQuad(0.0f, 0.0f, 640.f, 480.f, simpleProgram);
+
+	texCoords[0] = glm::vec2(0.f, 0.f);
+	texCoords[1] = glm::vec2(10.f, 2.f);
+	geom[0] = glm::vec2(0.f, 0.f);
+	geom[1] = glm::vec2(640.f, 128.f);
+	suelo = TexturedQuad::createTexturedQuad(geom, texCoords, texProgram);
+
+	texCoords[0] = glm::vec2(0.f, 0.5f);
+	texCoords[1] = glm::vec2(0.5f, 1.f);
+	geom[0] = glm::vec2(0.f, 0.f);
+	geom[1] = glm::vec2(128.f, 128.f);
+	champi = TexturedQuad::createTexturedQuad(geom, texCoords, texProgram);
+
+
 	// Load textures
-	texs[0].loadFromFile("images/varied.png", TEXTURE_PIXEL_FORMAT_RGBA);
-	texs[1].loadFromFile("images/rocks.jpg", TEXTURE_PIXEL_FORMAT_RGB);
+	texs[0].loadFromFile("images/brick.png", TEXTURE_PIXEL_FORMAT_RGB);
+	texs[1].loadFromFile("images/varied.png", TEXTURE_PIXEL_FORMAT_RGBA);
 	projection = glm::ortho(0.f, float(CAMERA_WIDTH - 1), float(CAMERA_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
 }
 
 void Scene::update(int deltaTime)
 {
+	float width = 640.f;
+	float size = 128.f;
+
 	currentTime += deltaTime;
+	PosicionChampi[0] += deltaTime * velocidadChampi;
+	velocidadChampi *= 0.9;
+
+	if (PosicionChampi[0] > width + size) {
+		PosicionChampi[0] = PosicionChampi[0];
+		PosicionChampi[0] = PosicionChampi[0] - (((int)(PosicionChampi[0] / width)) * width);
+		PosicionChampi[0] = PosicionChampi[0];
+	}
+
+	else if (PosicionChampi[0] < size) {
+		PosicionChampi[0] = PosicionChampi[0] - (((int)(PosicionChampi[0] / width)) * width) + width;
+	}
+
+	//if (PosicionChampi[0] > 640.f) PosicionChampi[0] = PosicionChampi[0] - 640.f - 128.f;
 }
 
 void Scene::render()
 {
 	glm::mat4 modelview;
+	float offset = 32.f;
+
 
 	simpleProgram.use();
 	simpleProgram.setUniformMatrix4f("projection", projection);
-	simpleProgram.setUniform4f("color", 0.2f, 0.2f, 0.8f, 1.0f);
 
-	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(128.f, 48.f, 0.f));
-	modelview = glm::translate(modelview, glm::vec3(64.f, 64.f, 0.f));
-	modelview = glm::rotate(modelview, -currentTime / 1000.f, glm::vec3(0.0f, 0.0f, 1.0f));
-	modelview = glm::translate(modelview, glm::vec3(-64.f, -64.f, 0.f));
+	// CIELO
+	simpleProgram.setUniform4f("color", 0.0f, 0.8f, 1.0f, 1.0f);
 	simpleProgram.setUniformMatrix4f("modelview", modelview);
-	quad->render();
+	cielo->render();
 
 	texProgram.use();
 	texProgram.setUniformMatrix4f("projection", projection);
 	texProgram.setUniform4f("color", 1.0f, 1.0f, 1.0f, 1.0f);
 
-	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(384.f, 48.f, 0.f));
-	modelview = glm::translate(modelview, glm::vec3(64.f, 64.f, 0.f));
-	modelview = glm::rotate(modelview, currentTime / 1000.f, glm::vec3(0.0f, 0.0f, 1.0f));
-	modelview = glm::translate(modelview, glm::vec3(-64.f, -64.f, 0.f));
+	// SUELO
+	modelview = glm::translate(glm::mat4(1.f), glm::vec3(0.f, 480.f - 128.f, 0.f));
 	texProgram.setUniformMatrix4f("modelview", modelview);
-	texQuad[0]->render(texs[0]);
+	suelo->render(texs[0]);
 
-	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(128.f, 304.f, 0.f));
-	modelview = glm::translate(modelview, glm::vec3(64.f, 64.f, 0.f));
-	modelview = glm::rotate(modelview, currentTime / 1000.f, glm::vec3(0.0f, 0.0f, 1.0f));
-	modelview = glm::translate(modelview, glm::vec3(-64.f, -64.f, 0.f));
+	// CHAMPIÑÓN
+	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(PosicionChampi[0], 480.f - 128.f - 128.f + offset, 0.f));
+	modelview = glm::translate(modelview, glm::vec3(-64.f, 0.f, 0.f));
 	texProgram.setUniformMatrix4f("modelview", modelview);
-	texQuad[1]->render(texs[0]);
+	champi->render(texs[1]);
 
-	modelview = glm::translate(glm::mat4(1.0f), glm::vec3(384.f, 304.f, 0.f));
-	modelview = glm::translate(modelview, glm::vec3(64.f, 64.f, 0.f));
-	modelview = glm::rotate(modelview, -currentTime / 1000.f, glm::vec3(0.0f, 0.0f, 1.0f));
-	modelview = glm::translate(modelview, glm::vec3(-64.f, -64.f, 0.f));
-	texProgram.setUniformMatrix4f("modelview", modelview);
-	texQuad[2]->render(texs[1]);
+	// DOBLE CHAMPIÑÓN
+	float width = 640.f;
+	float size = 128.f;
+	if (PosicionChampi[0] > width - size / 2) {
+		modelview = glm::translate(glm::mat4(1.0f), glm::vec3(PosicionChampi[0] - width, 480.f - 128.f - 128.f + offset, 0.f));
+		modelview = glm::translate(modelview, glm::vec3(-64.f, 0.f, 0.f));
+		texProgram.setUniformMatrix4f("modelview", modelview);
+		champi->render(texs[1]);
+	}
 }
 
 void Scene::initShaders()
@@ -138,3 +174,7 @@ void Scene::initShaders()
 	texProgram.bindFragmentOutput("outColor");
 }
 
+void Scene::addSpeed(float speed)
+{
+	velocidadChampi += speed;
+}

@@ -1,0 +1,7 @@
+﻿  Scene.cpp
+C:\Users\Sanson\Documents\UPC\VJ\ExOpenGL3\OpenGL\05-textures\05-textures\Scene.cpp(69,24): warning C4305: '*=': truncamiento de 'double' a 'float'
+SOIL.lib(image_DXT.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'SOIL.lib(image_DXT.obj)' o en 'C:\Users\Sanson\Documents\UPC\VJ\ExOpenGL3\OpenGL\05-textures\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+SOIL.lib(image_helper.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'SOIL.lib(image_helper.obj)' o en 'C:\Users\Sanson\Documents\UPC\VJ\ExOpenGL3\OpenGL\05-textures\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+SOIL.lib(SOIL.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'SOIL.lib(SOIL.obj)' o en 'C:\Users\Sanson\Documents\UPC\VJ\ExOpenGL3\OpenGL\05-textures\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+SOIL.lib(stb_image_aug.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'SOIL.lib(stb_image_aug.obj)' o en 'C:\Users\Sanson\Documents\UPC\VJ\ExOpenGL3\OpenGL\05-textures\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+  05-textures.vcxproj -> C:\Users\Sanson\Documents\UPC\VJ\ExOpenGL3\OpenGL\05-textures\Debug\05-textures.exe
