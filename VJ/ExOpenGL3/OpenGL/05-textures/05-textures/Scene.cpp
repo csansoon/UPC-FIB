@@ -21,9 +21,9 @@ Scene::~Scene()
 
 void Scene::init()
 {
-	PosicionChampi[0] = 320.f;
+	PosicionChampi[0] = 128.f;
 	PosicionChampi[1] = 0.f;
-	velocidadChampi = 0.f;
+	velocidadChampi = 5.f;
 
 	glm::vec2 geom[2] = {glm::vec2(0.f, 0.f), glm::vec2(128.f, 128.f)};
 	glm::vec2 texCoords[2] = {glm::vec2(0.f, 0.f), glm::vec2(1.f, 1.f)};

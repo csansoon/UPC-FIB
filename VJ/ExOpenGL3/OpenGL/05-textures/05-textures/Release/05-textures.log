@@ -1,13 +1,14 @@
 ﻿  Game.cpp
+  Scene.cpp
+C:\Users\Sanson\Documents\UPC\VJ\ExOpenGL3\OpenGL\05-textures\05-textures\Scene.cpp(69,24): warning C4305: '*=': truncamiento de 'double' a 'float'
 SOIL.lib(SOIL.obj) : warning LNK4075: se omite '/EDITANDCONTINUE' debido a la especificación '/OPT:ICF'
 LINK : warning LNK4098: la biblioteca predeterminada'MSVCRTD' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
   Generando código
-  0 of 260 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 260 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Generación de código finalizada
 SOIL.lib(image_DXT.obj) : warning LNK4099: no se encontró PDB '' con 'SOIL.lib(image_DXT.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
-SOIL.lib(image_helper.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'SOIL.lib(image_helper.obj)' o en 'C:\Users\Sanson\Documents\UPC\VJ\ExOpenGL3\OpenGL\05-textures\Release\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+SOIL.lib(image_helper.obj) : warning LNK4099: no se encontró PDB '' con 'SOIL.lib(image_helper.obj)' o en ''; se vinculará el objeto sin tener en cuenta información de depuración
 SOIL.lib(SOIL.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'SOIL.lib(SOIL.obj)' o en 'C:\Users\Sanson\Documents\UPC\VJ\ExOpenGL3\OpenGL\05-textures\Release\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
 SOIL.lib(stb_image_aug.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'SOIL.lib(stb_image_aug.obj)' o en 'C:\Users\Sanson\Documents\UPC\VJ\ExOpenGL3\OpenGL\05-textures\Release\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
   05-textures.vcxproj -> C:\Users\Sanson\Documents\UPC\VJ\ExOpenGL3\OpenGL\05-textures\Release\05-textures.exe
