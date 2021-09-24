@@ -1,4 +1,5 @@
 import os
+# import sympy
 
 pathDescifrados = 'C:/Users/Sanson/Documents/UPC-FIB/C/Classic/descifrados'
 descifrados = {}
@@ -7,6 +8,8 @@ for filename in os.listdir(pathDescifrados):
   
 fileCifrado = open("cifrado.txt", "r", encoding="utf8")
 cifrado = fileCifrado.read()
+
+solucion = open("descifrado.txt", "w", encoding="utf8")
 
 ########################################
 
@@ -48,6 +51,11 @@ def similitud(original, descifrado):
       parecido = parecido + 1
   return parecido / len(repeticiones_original)
 
+def trigramas_mas_frecuentes(texto, number):
+  conjuntoTrigramas = analisis_frecuencia_trigramas(texto)
+  trigramas_frecuentes = sorted(conjuntoTrigramas, key=conjuntoTrigramas.get, reverse=True)[:number]
+  return trigramas_frecuentes
+
 ###############################################
 
 
@@ -70,3 +78,9 @@ parecido = similitudes[maxSimilitud]
 
 print(f"El texto más similar es {maxSimilitud}, con una similitud del {parecido}%.")
 #print(descifrados[numText])
+
+trigramas_frecuentes = trigramas_mas_frecuentes(descifrados[maxSimilitud], 3)
+print(f"Los trigramas más frecuentes son: {trigramas_frecuentes}")
+
+solucion.write(descifrados[maxSimilitud])
+solucion.close()

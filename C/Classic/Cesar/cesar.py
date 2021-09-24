@@ -9,6 +9,8 @@ fileCifrado = open("cifrado.txt", "r", encoding="utf8")
 
 cifrado = fileCifrado.read()
 
+solucion = open("descifrado.txt", "w", encoding="utf8")
+
 ########################################
 
 def arreglar_desfase(texto):
@@ -73,3 +75,6 @@ maxSimilitud = max(similitudes, key = similitudes.get)
 parecido = similitudes[maxSimilitud]
 
 print(f"El texto más similar es {maxSimilitud}, con una similitud del {parecido}%.")
+
+solucion.write(descifrados[maxSimilitud])
+solucion.close()

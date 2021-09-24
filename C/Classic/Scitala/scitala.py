@@ -7,6 +7,8 @@ for filename in os.listdir(pathDescifrados):
   
 cifrado = open("cifrado.txt", "r", encoding="utf8").read()
 
+solucion = open("descifrado.txt", "w", encoding="utf8")
+
 ########################################
 
 def analisis_frecuencia(texto):
@@ -43,3 +45,6 @@ maxSimilitud = max(similitudes, key = similitudes.get)
 parecido = similitudes[maxSimilitud]
 
 print(f"El texto más similar es {maxSimilitud}, con una similitud del {parecido}%.")
+
+solucion.write(descifrados[maxSimilitud])
+solucion.close()
