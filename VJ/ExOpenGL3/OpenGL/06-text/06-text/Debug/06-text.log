@@ -1,0 +1,15 @@
+﻿  Game.cpp
+  main.cpp
+  Quad.cpp
+  Scene.cpp
+  Shader.cpp
+  ShaderProgram.cpp
+  Text.cpp
+  Texture.cpp
+  TexturedQuad.cpp
+  Generando código...
+SOIL.lib(image_DXT.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'SOIL.lib(image_DXT.obj)' o en 'C:\Users\Sanson\Documents\UPC-FIB\VJ\ExOpenGL3\OpenGL\06-text\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+SOIL.lib(image_helper.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'SOIL.lib(image_helper.obj)' o en 'C:\Users\Sanson\Documents\UPC-FIB\VJ\ExOpenGL3\OpenGL\06-text\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+SOIL.lib(SOIL.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'SOIL.lib(SOIL.obj)' o en 'C:\Users\Sanson\Documents\UPC-FIB\VJ\ExOpenGL3\OpenGL\06-text\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+SOIL.lib(stb_image_aug.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'SOIL.lib(stb_image_aug.obj)' o en 'C:\Users\Sanson\Documents\UPC-FIB\VJ\ExOpenGL3\OpenGL\06-text\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+  06-text.vcxproj -> C:\Users\Sanson\Documents\UPC-FIB\VJ\ExOpenGL3\OpenGL\06-text\Debug\06-text.exe
