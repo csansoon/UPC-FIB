@@ -12,8 +12,8 @@ void Game::init()
 
 bool Game::update(int deltaTime)
 {
-	if (keys[97]) scene.addSpeed(-0.2f);
-	if (keys[100]) scene.addSpeed(0.2f);
+	if (keys[97]) scene.addSpeed(-.2f);
+	if (keys[100]) scene.addSpeed(.2f);
 	scene.update(deltaTime);
 	
 	return bPlay;
