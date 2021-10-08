@@ -8,7 +8,8 @@ def suma32(a, b):
     #return np.sum(a, b, dtype=np.int32)
     
 def xor32(a, b):
-    return (np.bitwise_xor(a, b)) % OVERFLOW
+    # return (np.bitwise_xor(a, b)) % OVERFLOW
+    return (a ^ b) % OVERFLOW
 
 def left_shift32(a, b):
     return (a * pow(2,b)) % OVERFLOW
