@@ -1,6 +1,6 @@
 from Crypto.Cipher import AES
 from AES import *
-import magic
+from AES import *
 import filetype
 
 keyfile = open('clave1.key', 'rb')
