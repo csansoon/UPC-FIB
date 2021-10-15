@@ -6,7 +6,7 @@ import filetype
 keyfile = open('clave1.key', 'rb')
 key = bytearray(keyfile.read())
 
-print(f'key = {key}')
+#print(f'key = {key}')
 
 fichero1 = open('fichero1.enc', 'rb')
 original = bytearray(fichero1.read())
@@ -57,4 +57,3 @@ for modename, mode in modes.items():
 
     if not valid:
         print(f'❌ {modename}')
-
