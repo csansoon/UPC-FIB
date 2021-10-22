@@ -1,7 +1,14 @@
 from Crypto.Cipher import AES
-from AES import *
-from AES import *
 import filetype
+
+def validPadding(bytes):
+    padding = bytes[len(bytes) - 1]
+    if padding == 0:
+        return False
+    for byte in bytes[len(bytes)-padding:]:
+        if byte != padding:
+            return False
+    return True
 
 keyfile = open('clave1.key', 'rb')
 key = bytearray(keyfile.read())
@@ -51,9 +58,9 @@ for modename, mode in modes.items():
         
         else:
             extension = type.extension
-            f = open(f'./decrypted/{modename}.{extension}', 'wb')
+            f = open(f'fichero1.{extension}', 'wb')
             f.write(text)
-            print(f'✅ {modename}.{extension}')
+            print(f'✅ {modename}')
 
     if not valid:
         print(f'❌ {modename}')

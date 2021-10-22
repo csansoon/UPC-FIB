@@ -1,8 +1,5 @@
-from colored import fg, bg, attr
-
-def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = f'█', empty = f'█', printEnd = "\r"):
+def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '█', empty = '░', printEnd = "\r"):
     """
-    ████░░░░
     Call in a loop to create terminal progress bar
     @params:
         iteration   - Required  : current iteration (Int)
@@ -16,7 +13,7 @@ def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, 
     """
     percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
     filledLength = int(length * iteration // (total - 1))
-    bar = fg('dark_olive_green_3a') + fill * filledLength + fg('dark_gray') + empty * (length - filledLength) + attr(0)
+    bar = fill * filledLength + empty * (length - filledLength)
     print(f'\r{prefix} {bar} {percent}% {suffix}', end = printEnd)
     # Print New Line on Complete
     if iteration == total: 
