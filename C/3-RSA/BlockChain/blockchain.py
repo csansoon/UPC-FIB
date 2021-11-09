@@ -1,24 +1,73 @@
+import sympy
+from progress import printProgressBar
+debug_range = 5000
 
 class rsa_key:
 
-    def __init__(self, bits_modulo=2048, e=2**16+1):
-        self.publicExponent # representado por entero
-        self.privateExponent # representado por entero
-        self.modulus # representado por entero
-        self.primeP # representado por entero
-        self.primeQ # representado por entero
-        self.privateExponentModulusPhiP # privateExponent módulo primeP-1 representado por un entero
-        self.privateExponentModulusPhiQ # privateExponent módulo primeQ-1 representado por un entero
-        self.inverseQModulusP # inverso de primeQ módulo primeP representado por un entero
+    def __init__(self, bits_modulo=2048, e=2**16+1, debug = False):
+        self.publicExponent = e # (e) representado por entero
+        #self.privateExponent # (d) representado por entero
+        #self.modulus # (n) representado por entero
+        #self.primeP # (p) representado por entero
+        #self.primeQ # (q) representado por entero
+        #self.privateExponentModulusPhiP # (d_p) privateExponent módulo primeP-1 representado por un entero
+        #self.privateExponentModulusPhiQ # (d_q) privateExponent módulo primeQ-1 representado por un entero
+        #self.inverseQModulusP # inverso de primeQ módulo primeP representado por un entero
+
+        bits_prime = (int)(bits_modulo / 2)
+        max_prime = 2**bits_prime
+        self.primeP = sympy.randprime(2, max_prime)
+        if (debug): self.primeP = sympy.randprime(2, debug_range)
+        while sympy.gcd(self.publicExponent, self.primeP - 1) != 1:
+            next = sympy.nextprime(self.primeP)
+            if (next < max_prime):
+                self.primeP = next
+            else:
+                self.primeP = 1
+        self.primeQ = sympy.randprime(2, max_prime)
+        if (debug): self.primeQ = sympy.randprime(2, debug_range)
+        originalQ = self.primeQ
+        while self.primeP == self.primeQ or sympy.gcd(self.publicExponent, (self.primeP - 1) * (self.primeQ - 1)) != 1:
+            print(f'{self.primeQ}', end='\r')
+            next = sympy.nextprime(self.primeQ)
+            if (next < max_prime):
+                self.primeQ = next
+            else:
+                self.primeQ = 1
+            if self.primeQ == originalQ:
+                print('ERROR: primeQ not found.')
+                break
+        
+
+        self.modulus = self.primeP * self.primeQ
+        if (self.modulus >= 2**bits_modulo):
+            print('ERROR: Módulo demasiado grande')
+
+        self.length = (self.primeP - 1) * (self.primeQ - 1) # (r)
+        self.privateExponent = (int)(pow(self.publicExponent, -1, self.length)) # (d)
+        #self.privateExponent = (int)(sympy.gcdex(self.publicExponent, self.length)[0]) #! Puede devolver valores negativos
+
+        #self.privateExponent = (1/self.publicExponent) % sympy.gcd(self.primeP - 1, self.primeQ - 1) #! devuelve decimal
+        #self.privateExponent = pow(self.publicExponent, -1, (int)(sympy.gcd(self.primeP-1, self.primeQ-1))) #! devuelve 1
+
+        self.privateExponentModulusPhiP = self.privateExponent % (self.primeP - 1)
+        self.privateExponentModulusPhiQ = self.privateExponent % (self.primeQ - 1)
+
+        self.inverseQModulusP = sympy.gcdex(self.primeQ, self.primeP)[0]
+        
     
     def sign(self, message):
         #? Devuelve un entero que es la firma de message hecha con la clave RSA haciendo servir el TXR
-        ''
+        xp = pow(message, self.modulus, self.primeP)
+        xq = pow(message, self.modulus, self.primeQ)
+        p, q = sympy.gcdex(self.primeP, self.primeQ)[:2]
+        return xp * p * self.primeP + xq * q * self.primeQ
+
     
 
     def sign_slow(self, message):
         #? Devuelve un entero que es la firma de message hecha con la clave RSA sin usar el TXR
-        ''
+        return pow(message, self.privateExponent, mod=self.modulus)
 
 
 class rsa_public_key:
