@@ -37,32 +37,27 @@ class rsa_key:
             if self.primeQ == originalQ:
                 print('ERROR: primeQ not found.')
                 break
-        
 
         self.modulus = self.primeP * self.primeQ
         if (self.modulus >= 2**bits_modulo):
             print('ERROR: Módulo demasiado grande')
 
         self.length = (self.primeP - 1) * (self.primeQ - 1) # (r)
-        self.privateExponent = (int)(pow(self.publicExponent, -1, self.length)) # (d)
-        #self.privateExponent = (int)(sympy.gcdex(self.publicExponent, self.length)[0]) #! Puede devolver valores negativos
+        self.privateExponent = (int)(pow(self.publicExponent, -1, self.length)) # (d) = inverso modular de e mod (p-1)(q-1)
 
-        #self.privateExponent = (1/self.publicExponent) % sympy.gcd(self.primeP - 1, self.primeQ - 1) #! devuelve decimal
-        #self.privateExponent = pow(self.publicExponent, -1, (int)(sympy.gcd(self.primeP-1, self.primeQ-1))) #! devuelve 1
-
-        self.privateExponentModulusPhiP = self.privateExponent % (self.primeP - 1)
-        self.privateExponentModulusPhiQ = self.privateExponent % (self.primeQ - 1)
+        # self.privateExponentModulusPhiP = self.privateExponent % (self.primeP - 1) #! No parece funcionar bien el cálculo de Phi de P
+        # self.privateExponentModulusPhiQ = self.privateExponent % (self.primeQ - 1)
+        self.privateExponentModulusPhiP = self.privateExponent % sympy.totient(self.primeP)
+        self.privateExponentModulusPhiQ = self.privateExponent % sympy.totient(self.primeQ)
 
         self.inverseQModulusP = sympy.gcdex(self.primeQ, self.primeP)[0]
         
     
     def sign(self, message):
         #? Devuelve un entero que es la firma de message hecha con la clave RSA haciendo servir el TXR
-        xp = pow(message, self.modulus, self.primeP)
-        xq = pow(message, self.modulus, self.primeQ)
-        p, q = sympy.gcdex(self.primeP, self.primeQ)[:2]
-        return xp * p * self.primeP + xq * q * self.primeQ
-
+        xp = pow(message, self.privateExponentModulusPhiP, self.primeP)
+        xq = pow(message, self.privateExponentModulusPhiQ, self.primeQ)
+        return (xq + self.primeQ * self.inverseQModulusP * (xp - xq)) % self.modulus
     
 
     def sign_slow(self, message):
@@ -79,7 +74,7 @@ class rsa_public_key:
 
     def verify(self, message, signature):
         #? Devuelve True si signature corresponde a una firma de message hecha con la clave RSA asociada a la clave pública RSA
-        ''
+        return message == pow(signature, self.publicExponent, self.modulus)
 
 
 
@@ -91,14 +86,14 @@ class transaction:
 
     def __init__ (self, message, RSAkey):
         # RSAkey = clave RSA con la que se firma la transacción
-        self.public_key = RSAkey# clave pública RSA correspondiente a RSAkey
+        self.public_key = rsa_public_key(RSAkey)# clave pública RSA correspondiente a RSAkey
         self.message = message # documento que se firma a la transacción representado por un entero
-        self.signature # firma de message hecha con la clave RSAkey representada por un entero
+        self.signature = RSAkey.sign(message)# firma de message hecha con la clave RSAkey representada por un entero
 
     
     def verify(self):
         #? Devuelve True si signature corresponde con una firma de message hecha con la clave pública public_key
-        ''
+        return self.public_key.verify(self.message, self.signature)
 
 
 
@@ -108,6 +103,7 @@ class block:
     donde d es un parámetro que indica el proof of work necesario para generar un bloque válido.
     Para esta práctica, d=16.
     '''
+    d = 16
 
     def __init__(self):
         self.block_hash # SHA256 del bloque actual representado por un entero
@@ -120,12 +116,13 @@ class block:
         #? Genera el primer bloque de una cadena con la transacción transaction que se caracteriza por:
         #?  - previous_block_hash=0
         #?  - es válido
-        ''
+        self.previous_block_hash = 0
+        self.transaction = transaction
 
     
     def next_block(self, transaction):
         #? Genera el siguiente bloque válido con la transacción
-        ''
+        self.transaction = transaction
     
 
     def verify_block(self):
@@ -133,19 +130,23 @@ class block:
         #?  - Comprueba que el hash del bloque anterior cumple con las condiciones exigidas
         #?  - Comprueba que la transacción del bloque es válida
         #?  - Comprueba que el hash del bloque cumple con las condiciones exigidas
-        ''
+        condition = pow(2, 256 - d)
+        if not (self.previous_block_hash < condition): return false
+        if not (self.transatcion.verify()): return false
+        if not (self.block_hash < condition): return false
+        return true
     
 
 
 class block_chain:
     def __init__(self, transaction):
         #? Genera una cadena de bloques donde el primero es un bloque "genesis" generado con la transacción transaction
-        self.list_of_blocks
+        self.list_of_blocks = [block.genesis(transaction)]
     
 
     def add_block(self, transaction):
         #? Añade a la cadena un nuevo bloque válido generado con la transacción
-        ''
+        self.list_of_blocks.append(next_block(transaction))
     
 
     def verify(self):
