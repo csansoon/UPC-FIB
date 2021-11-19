@@ -1,25 +1,24 @@
 from random import randint
 from blockchain import *
-import time
-from colored import fg, bg, attr
+from colors import *
+import pickle
 
-gray = fg('#989898')
-highlight = fg('#FFC648')
-attribute = fg('#2D91FF')
-good = fg('#16C60C')
-bad = fg('#F03A17')
-reset = attr(0)
+files = [
+    'Cadena_bloques_bloque_falso',
+    'Cadena_bloques_seed_falsa',
+    'Cadena_bloques_transaccion_falsa',
+    'Cadena_bloques_valida'
+]
 
-private_key = rsa_key()
-public_key = rsa_public_key(private_key)
+for filename in files:
 
-message = randint(1, 2**1024)
+    with open(f'files/{filename}.block', 'rb') as file:
+        blockchain = pickle.load(file)
 
-trans1 = transaction(message, private_key) 
-
-block1 = block.genesis(trans1)
-
-if (block1.verify_block()):
-    print(f'{good}✅ Bloque correcto.{reset}')
-else:
-    print(f'{bad}❌ Bloque incorrecto.{reset}')
+    title = filename.replace('_', ' ')
+    print(f'{highlight}{title}:{reset}')
+    valido, ultimo_bloque_correcto = blockchain.verify()
+    if valido:
+        print(f' {good}✅ Todos los bloques de la cadena son válidos.{reset}\n')
+    else:
+        print(f' {bad}❌ El bloque {ultimo_bloque_correcto + 1} es inválido.{reset}\n')
