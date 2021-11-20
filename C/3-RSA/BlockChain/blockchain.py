@@ -120,7 +120,7 @@ class block:
         found = False
         while not found:
             self.seed = random.randint(0, 2**256)
-            h = calculate_hash()
+            h = self.calculate_hash()
 
             if h < condition:
                 self.block_hash = h
