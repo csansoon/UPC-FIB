@@ -1,7 +1,5 @@
 from Crypto.PublicKey import RSA
 import sympy
-import math
-import decimal
 from colors import *
 
 
@@ -34,60 +32,51 @@ def find_primes(my_key):
         r2_s2 = (n - rxs - (rxs << (2 * size_4))) >> (size_4)  # r² + s²
         id_notable = r2_s2 + 2 * rxs   # r² + 2rs + s²
         r_s = (int)(sympy.sqrt(id_notable))
-#       r_s = isqrt(id_notable)
 
         # ? si no es realmente la raíz correcta significa que el resultado
         # ? no era entero y por lo tanto este valor de r·s no es correcto
         if r_s ** 2 != id_notable:
-            print(f'{bad}❌ La raíz de {gray}{id_notable}{bad} no es entera.{reset}\n')
             continue
-
-        print(f'{good}✅ La raíz de {gray}{id_notable}{good} es entera.{reset}\n')
 
         # r + s   =  r_s   }
         # r · s   =  rxs   }  solve r, s
         # r² + s² =  r2_s2 }
 
-        #r, s = sympy.symbols('r s')
-        #solution = sympy.solve(r**2 - r_s * r + rxs)
-        # print(solution)
+        # r² - (r_s) r + (rxs) = 0
         solutions = quadratic_formula(1, -r_s, rxs)
 
         for r in solutions:
-            if r != (int)(r):
-                print(f'{bad}❌ r is not an integer ({gray}{r}{bad}){reset}')
-            r = (int)(r)
             s0 = r_s - r
-            s1 = rxs / r
+            s1 = rxs // r
             if s0 != s1:
-                print(f'{bad}❌ The solution is not valid{reset}')
                 continue
-            print(f'{good}✅ Encontrado!{reset}')
-            print(f'{attribute} r = {gray}{r}{reset}')
-            print(f'{attribute} s = {gray}{s0}{reset}')
+            s = s0
+
+            p = (r << (size_4)) | s
+            q = (s << (size_4)) | r
+
+            return p, q
 
     print(f'{bad}❌ No r s values were found{reset}')
+    return
 
 
 def quadratic_formula(a, b, c):
     # (-b +- sqrt(b**2 - 4ac)) / 2a
     solutions = []
     if a == 0:
-        print(f'{bad}❌ A = 0{reset}')
         return solutions
 
     d = b**2 - (4 * a * c)
     if d < 0:
-        print(f'{bad}❌ b² - (4 * a * c){reset}')
         return solutions
 
     discriminator = isqrt(d)
     if discriminator**2 != d:
-        print(f'{bad}❌ La raíz del discriminator no es entero{reset}')
         return solutions
 
-    x0 = (-b + discriminator) / (2*a)
-    x1 = (-b - discriminator) / (2*a)
+    x0 = (-b + discriminator) // (2*a)
+    x1 = (-b - discriminator) // (2*a)
     solutions.append(x0)
     if x1 != x0:
         solutions.append(x1)

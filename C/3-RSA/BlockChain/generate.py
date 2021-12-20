@@ -28,7 +28,7 @@ for index in range(blocks - 1):
 valido, ultimo_bloque_correcto = blockchain.verify()
 print()
 
-blockchain.list_of_blocks[58].seed = blockchain.list_of_blocks[58].seed + 1
+blockchain.list_of_blocks[57].seed = blockchain.list_of_blocks[57].seed + 1
 
 if valido:
     print(f' {good}✅ Todos los bloques de la cadena son válidos.{reset}\n')
